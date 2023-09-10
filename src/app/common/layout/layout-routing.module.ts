@@ -24,6 +24,13 @@ const routes: Routes = [
             (m) => m.UserManagementModule
           ),
       },
+      {
+        path: 'report',
+        loadChildren: () =>
+          import('src/app/modules/reportmaid/reportmaid.module').then(
+            (m) => m.ReportmaidModule
+          ),
+      },
       // { path: 'meetingroom', loadChildren: '../../page/meeting-room/meeting-room.module#MeetingRoomModule'}
     ]
   },

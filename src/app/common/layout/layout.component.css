@@ -1,5 +1,5 @@
 .colorNav{
-  background:  linear-gradient(to right, #3AA142, #4686d8);
+  background:  linear-gradient(to right, #0d5302, #26a69a);
   /* background-color: #4686d8 !important;  */
   margin-bottom: 17px;
 }
@@ -106,7 +106,7 @@ ul.components > li>ul>li>a {
     display: block;
 }
 #sidebar ul.list-main li a:hover {
-    color: #4686d8;
+    color: #0d5302;
     /* background: rgb(224, 141, 47); */
 }
 
