@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzSliderModule } from 'ng-zorro-antd/slider';
+import { LoginComponent } from './modules/authentication/login/login.component';
+import { ForgotPasswordComponent } from './modules/authentication/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NzButtonModule,
-    NzSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
