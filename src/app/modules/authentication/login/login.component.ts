@@ -12,6 +12,8 @@ export class LoginComponent {
     , private route: ActivatedRoute) {
   }
 
+  
+
   login() {
     this.router.navigate(['/dashboard']);
   }
