@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { AntDesignModule } from 'src/app/common/ant-design.module';
+import { CommonModule } from '@angular/common';
 
 
 const routes: Routes = [
@@ -19,8 +21,10 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
-    NzTableModule
+    NzTableModule,
+    AntDesignModule
   ],
   exports: [RouterModule],
 })

@@ -5,26 +5,28 @@
     <button type="button" class="btn btn-outline-success">+ เพิ่มแม่บ้าน</button>
   </div>
   <div class="card-body">
-    <nz-table #basicTable [nzData]="listOfData">
+    <nz-table #dataMaid [nzData]="dataMaids">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
+          <th>ชื่อ</th>
+          <th>นามสกุล</th>
+          <th>เบอร์โทร</th>
+          <th>Action</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
+        <tr *ngFor="let data of dataMaid.data">
+          <td>{{ data.fname }}</td>
+          <td>{{ data.lname }}</td>
+          <td>{{ data.phone }}</td>
           <td>
-            <a>Action 一 {{ data.name }}</a>
-            <!-- <nz-divider nzType="vertical"></nz-divider> -->
-            <a>Delete</a>
+            {{ data.lname }}
           </td>
-          <button type="button" class="btn btn-primary">เพิ่มงาน</button>
+          <td>
+            <button type="button" class="btn btn-primary">เพิ่มงาน</button>
+          </td>
+
         </tr>
       </tbody>
     </nz-table>
