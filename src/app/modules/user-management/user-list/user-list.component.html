@@ -2,7 +2,7 @@
   <div class="card-header" style="display: flex;
     justify-content: space-between;;">
     <h2>Maid</h2>
-    <button type="button" class="btn btn-outline-success">+ เพิ่มแม่บ้าน</button>
+    <button type="button" (click)="this.add()" class="btn btn-outline-success">+ เพิ่มลูกบ้าน</button>
   </div>
   <div class="card-body">
     <nz-table #dataResidents [nzData]="dataResident">

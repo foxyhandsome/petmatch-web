@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Maid } from '../../maid/interface/miad.interface';
 import { ResidentService } from '../service/resident.service';
@@ -17,6 +18,7 @@ interface Person {
 export class UserListComponent implements OnInit {
   private service = inject(ResidentService);
   private _changeDetectorRef = inject(ChangeDetectorRef);
+  private router = inject(Router);
   dataResident: Maid[] = [];
   ngOnInit(): void {
     this.getResident()
@@ -33,5 +35,7 @@ export class UserListComponent implements OnInit {
       }
     });
   }
-
+  add() {
+    this.router.navigate(['/user/user-add']);
+  }
 }
