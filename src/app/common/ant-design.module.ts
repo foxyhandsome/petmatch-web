@@ -71,6 +71,7 @@ import { NzWaveModule } from "ng-zorro-antd/core/wave";
 import { NzI18nModule } from "ng-zorro-antd/i18n";
 import { NzPipesModule } from "ng-zorro-antd/pipes";
 
+
 const componentsModule = [
   NzAffixModule,
   NzAlertModule,
@@ -142,7 +143,9 @@ const componentsModule = [
   NzWaveModule,
   NzPipesModule,
   NzQRCodeModule,
-  NzWaterMarkModule
+  NzWaterMarkModule,
+  NzFormModule
+  
 
 ];
 

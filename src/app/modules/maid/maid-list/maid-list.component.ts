@@ -2,12 +2,8 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Maid } from '../interface/miad.interface';
 import { MaidService } from '../service/maid.service';
-interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-maid-list',
@@ -15,8 +11,10 @@ interface Person {
   styleUrls: ['./maid-list.component.scss']
 })
 export class MaidListComponent implements OnInit {
+  private router = inject(Router);
   private service = inject(MaidService);
   private _changeDetectorRef = inject(ChangeDetectorRef);
+  
   dataMaids: Maid[] = [];
   ngOnInit(): void {
     this.getMaid()
@@ -32,6 +30,10 @@ export class MaidListComponent implements OnInit {
       error: (err) => {
       }
     });
+  }
+
+  add() {
+    this.router.navigate(['/maid/maid-add']);
   }
 
 }

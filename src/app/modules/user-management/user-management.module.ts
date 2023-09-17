@@ -6,6 +6,9 @@ import { UserAddComponent } from './user-add/user-add.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { AntDesignModule } from 'src/app/common/ant-design.module';
 import { CommonModule } from '@angular/common';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 
 const routes: Routes = [
@@ -24,7 +27,10 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     NzTableModule,
-    AntDesignModule
+    AntDesignModule,
+    NzFormModule,
+    NzInputModule,
+    NzSelectModule
   ],
   exports: [RouterModule],
 })

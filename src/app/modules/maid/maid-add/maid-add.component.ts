@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-user-add',
-  templateUrl: './user-add.component.html',
-  styleUrls: ['./user-add.component.scss']
+  selector: 'app-maid-add',
+  templateUrl: './maid-add.component.html',
+  styleUrls: ['./maid-add.component.css']
 })
-export class UserAddComponent implements OnInit{
+export class MaidAddComponent {
   validateForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -57,3 +57,4 @@ export class UserAddComponent implements OnInit{
   }
 
 }
+
