@@ -1,0 +1,15 @@
+
+.rectangle {
+    width: 400px; /* กำหนดความกว้างของกรอบ */
+    height: 350px; /* กำหนดความสูงของกรอบ */
+    background-color: #ffffff; /* กำหนดสีพื้นหลังของกรอบ */
+    color: rgb(0, 0, 0); /* กำหนดสีข้อความภายในกรอบ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลางตามแนวนอน */
+    line-height: 100px; /* จัดให้ข้อความอยู่ตรงกลางตามแนวตั้ง */
+    border-radius: 15px; /* กำหนดขอบโค้ง (rounded corners) */
+    border: 3px solid black; /* เพิ่มเส้นรอบวงสีดำ */
+  }
+
+  .background-color {
+    background-color: #afafaf;
+}

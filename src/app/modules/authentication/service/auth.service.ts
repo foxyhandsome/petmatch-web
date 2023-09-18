@@ -8,7 +8,7 @@ export class AuthService {
 
 
   login(req: any) {
-    return this._http.post(environment.api_url + '/auth/login', {
+    return this._http.post(environment.api_url + '/auth/login-all', {
       ...req
     });
   }

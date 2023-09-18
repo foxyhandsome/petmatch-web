@@ -2,14 +2,23 @@
     min-height: 100vh;
 }
 
-.bg-image {
-    background-image: url('https://cdn.discordapp.com/attachments/974298706763481088/1150133086193991680/5c6e0b163cb6d09340fafbc0_5c7ca84c15f02075114d9b2c.jpg');
-    background-size: cover;
-    background-position: center;
+.background-image {
+    background-image: url('https://cdn.discordapp.com/attachments/776816017351507968/1153286196135460964/petmatch_icon.png');
+    background-size: 650px;
+    background-position: top ;  
+    background-repeat: no-repeat;
 }
 
+
 .login-heading {
-    font-weight: 300;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-control {
+    width: 400px; 
+    height: 30px;
+    margin: 0 auto; 
 }
 
 .button {
@@ -27,12 +36,12 @@
 
 
 .background-button-login {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #4CAF50;
+    background-color: rgb(44, 150, 44); 
+    color: rgb(255, 251, 251); 
+    border: 2px solid #3a8f3d;
 }
 
 .background-button-login:hover {
-    background-color: #4CAF50;
+    background-color: #6af06f;
     color: white;
 }

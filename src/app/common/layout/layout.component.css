@@ -1,127 +1,21 @@
-.colorNav{
-  background:  linear-gradient(to right, #0d5302, #26a69a);
-  /* background-color: #4686d8 !important;  */
-  margin-bottom: 17px;
-}
-h4.logo{
-  color: #4686d8;
-}
-.wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-}
-.wrapper {
-  display: flex;
-  align-items: stretch;
+
+ul {
+  background: linear-gradient(to right, #302c2c ,#808494);
+  height: 150px; /* ลดความสูงเพื่อให้แสดงถูกต้อง */
+  display: flex; /* เพิ่มคุณสมบัติ flex เพื่อจัดกลุ่มรายการเมนูและรูปภาพในบรรทัดเดียวกัน */
+  align-items: center; /* จัดให้รายการเมนูและรูปภาพอยู่ตรงกลางกันในแนวตั้ง */
 }
 
-#sidebar {
-  min-width: 300px;
-  max-width: 300px;
-}
-.list-unstyled a {
-  color: #000000;
-  text-decoration: none;
-}
-ul.list-main>li>a>i{
-  color: #0B7513;
+li {
   font-size: 20px;
-  width: 15px;
-  text-align: left;
+  margin-right: 20px; /* ระยะห่างระหว่างรายการเมนูทางขวา */
+  color: white;
 }
-ul.list-main>li{
-  border-bottom: #8D8D8D 2px solid;
-}
-.list-unstyled>li.header {
-  color: #1957db;
-  background: #cccccc;
-}
-
-#sidebar.active {
-  margin-left: -300px;
-}
-/* #sidebar {
-  min-width: 350px;
-  max-width: 350px;
-  min-height: 100vh;
-} */
-a[data-toggle="collapse"], .table {
-  position: relative;
-  width: 100%;
-}
-
-.dropdown-toggle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-}
-/* a.dropdown-toggle{
-  font-size: 16px !important;
+/* a {
+  color: white;
 } */
 
-ul.components > li>ul>li>a {
-  font-size: 14px !important;
-}
-@media (max-width: 768px) {
-  #sidebar {
-      margin-left: -250px;
-  }
-  #sidebar.active {
-      margin-left: 0;
-  }
+.icon {
+  font-size: 20px;
 }
 
-
-#sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
-    background: #ffffff;
-    color: #4686d8;
-    transition: all 0.3s;
-    /* font-size: 18px; */
-}
-
-#sidebar .sidebar-header {
-  padding: 7.5px;
-  background: rgb(255, 255, 255);
-  color: #ffffff;
-  /* border-bottom: 3px solid #4686d8; */
-}
-
-/* #sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #143d3a;
-} */
-
-#sidebar ul.list-main p {
-    color: rgb(37, 110, 245);
-    padding: 10px;
-}
-
-#sidebar ul.list-main li a {
-    padding: 10px;
-    font-size: 14px;
-    display: block;
-}
-#sidebar ul.list-main li a:hover {
-    color: #0d5302;
-    /* background: rgb(224, 141, 47); */
-}
-
-#sidebar ul.list-main li.active > a, a[aria-expanded="true"] {
-    color: #4686d8;
-    /* background: rgb(224, 141, 47); */
-}
-ul.list-main ul a {
-  font-size: 14px !important;
-    padding-left: 30px !important;
-    background: #eeeeee;
-}
-a.user{
-  color:#ffffff;
-}
-a.user:hover, a.user:active{
-  color:#cccccc;  
-}

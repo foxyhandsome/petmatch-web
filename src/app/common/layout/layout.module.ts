@@ -1,19 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
-import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { IconDefinition } from '@ant-design/icons-angular';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+import { MainComponent } from 'src/app/modules/main/main.component';
 
+
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    DashboardComponent
+    MainComponent
   ],
   imports: [
     CommonModule,
     LayoutRoutingModule,
+    NzMenuModule,
+    NzIconModule,
   ]
 })
 export class LayoutModule { }

@@ -1,65 +1,33 @@
-<div class="wrapper">
-    <nav id="sidebar" class="shadow">
-        <div class="sidebar-header text-center">
-            <img class="logo"
-                [src]="imageUrl"
-                alt="logo" style="width: 280px;">
-        </div>
-
-        <ul class="list-unstyled list-main components mt-4">
-            <li>
-                <a routerLink="/dashboard">
-                    <i class="fa fa-home" style="margin-right: 15px;"></i>หน้าแรก
-                </a>
-            </li>
-            <li>
-                <a routerLink="/maid/maid-list">
-                    <i class="fa fa-bath" aria-hidden="true" style="margin-right: 15px;"></i>แม่บ้าน
-                </a>
-            </li>
-            <li>
-                <a routerLink="/user/user-list">
-                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ลูกบ้าน
-                </a>
-            </li>
-            <li>
-                <a routerLink="/report/reportproblem">
-                    <i class="fa fa-flag" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;รายงานปัญหา
-                </a>
-            </li>
-             <li>
-                <a routerLink="/login">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ออกจากระบบ
-                </a>
-            </li>
-        </ul>
-    </nav>
-
+<ul nz-menu nzMode="horizontal">
+    <li nz-menu-item nzSelected>
+      <img [src]="imgpetmatch" style="width: 280px; margin-right: 20px;">
+    </li>
+    <li nz-menu-item nzSelected>
+        <a routerLink="/main">
+        <span nz-icon nzType="home" nzTheme="outline" class="icon"></span>
+        <span>หน้าเเรก</span>
+        </a>
+    </li>
+    <li nz-menu-item nzSelected>
+        <a routerLink="/manage-user">
+        <span nz-icon nzType="user" nzTheme="outline" class="icon"></span>
+        <span>ผู้ใช้</span>
+        </a>
+    </li>
+    <li nz-menu-item nzSelected>
+        <span nz-icon nzType="form" nzTheme="outline" class="icon"></span>
+        <span>รีวิว</span>
+    </li>
+    <li nz-menu-item nzSelected>
+        <a routerLink="/login">
+        <span nz-icon nzType="logout" nzTheme="outline" class="icon" style="color: red;"></span>
+        <span style="color: red;">ออกจากระบบ</span>
+        </a>
+    </li>
+</ul>
 
     <!-- Page Content  -->
     <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-light shadow colorNav p-3">
-            <div class="container-fluid">
-                <i class="fa fa-bars" aria-hidden="true" id="sidebarCollapse"
-                    style="color:aliceblue; cursor: pointer;"></i>
-                <div style="color: azure;">
-                    ผู้ใช้งาน: นายเอ ใจดี
-                </div>
-
-                <!-- <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown" style="padding-right: 44px">
-                        <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user "></i> นาย เอ
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu p-2">
-                            <li>
-                                <a routerLink="/login"><i class="fa fa-sign-out text-danger"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul> -->
-            </div>
-        </nav>
         <div class="container-fluid">
             <!-- alert success -->
             <div class="alert alert-success alert-dismissible fade show" style="display: none" id="alert-success">
@@ -76,9 +44,5 @@
                 <a class="close" onclick="$('#alert-warning').hide()">×</a>
                 <strong>Warning!</strong> Warning process.
             </div>
-            <div (click)="otherClick()">
-                <router-outlet></router-outlet>
-                <div class="pb-4">
-                </div>
-            </div>
+            <router-outlet></router-outlet>
         </div>
