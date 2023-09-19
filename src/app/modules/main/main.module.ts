@@ -8,7 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
-
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 
 const antDesignIcons = AllIcons as {
@@ -32,7 +32,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     NzCardModule,
     NzButtonModule,
-    NzIconModule
+    NzIconModule,
+    NzGridModule,
   ],
   exports: [RouterModule],
 })

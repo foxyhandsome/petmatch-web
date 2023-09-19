@@ -6,7 +6,7 @@ import { LayoutComponent } from './layout.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
-import { MainComponent } from 'src/app/modules/main/main.component';
+
 
 
 const antDesignIcons = AllIcons as {
@@ -17,7 +17,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
 @NgModule({
   declarations: [
     LayoutComponent,
-    MainComponent
+   
   ],
   imports: [
     CommonModule,

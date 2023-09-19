@@ -11,6 +11,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
+import { ReviewComponent } from './modules/review/review.component';
 
 
 const antDesignIcons = AllIcons as {
@@ -22,6 +23,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     LoginComponent,
+    ReviewComponent,
     
   ],
   imports: [
