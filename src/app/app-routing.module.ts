@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './modules/authentication/login/login.component';
+import { EditUserComponent } from './modules/edit-user/edit-user.component';
 
 const routes: Routes = [
   {

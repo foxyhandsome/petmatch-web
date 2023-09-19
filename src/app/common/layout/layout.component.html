@@ -1,13 +1,19 @@
 <nz-layout>
   <header>
-    <!-- <div class="logo"></div> -->
-
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
       <img [src]="imgpetmatch" alt="" style="width: 150px;">
-      <li nz-menu-item [routerLink]="['/main']">หน้าแรก</li>
-      <li nz-menu-item [routerLink]="['/user-list']">ผู้ใช้ทั้งหมด</li>
-      <li nz-menu-item [routerLink]="['/review']">รีวิวทั้งหมด</li>
-      <li nz-menu-item [routerLink]="['/login']">ออกจากระบบ</li>
+      <li nz-menu-item [routerLink]="['/main']">
+        <i nz-icon nzType="home"></i>
+        หน้าแรก</li>
+      <li nz-menu-item [routerLink]="['/user-list']">
+        <i nz-icon nzType="user"></i>
+        ผู้ใช้ทั้งหมด</li>
+      <li nz-menu-item [routerLink]="['/review']">
+        <i nz-icon nzType="form"></i>
+        รีวิวทั้งหมด</li>
+      <li nz-menu-item [routerLink]="['/login']" class="logout-menu-item">
+        <i nz-icon nzType="logout"></i>
+        ออกจากระบบ</li>
     </ul>
   </header>
 </nz-layout>

@@ -1,7 +1,6 @@
-<button type="button" class="btn btn-primary">เพิ่มผู้ใช้งาน</button>
 <div class="card mt-2">
-  <div class="card-header">
-    รายการ user ในระบบ
+  <div class="card-header" >
+    <strong>ผู้ใช้ในระบบ</strong>
   </div>
   <div class="card-body">
     <div class="row">
@@ -9,21 +8,25 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">No.</th>
-              <th scope="col">username</th>
-              <th scope="col">phone</th>
-              <th scope="col">information</th>
-              <th scope="col">action</th>
+              <th scope="col">ไอดีผู้ใช้</th>
+              <th scope="col">ชื่อผู้ใช้</th>
+              <th scope="col">เบอร์ติดต่อ</th>
+              <th scope="col">คำเเนะนำเพิ่มเติม</th>
+              <th scope="col">เขตที่อยู่</th>
+              <th scope="col">แขวงที่อยู่</th>
+              <th scope="col">ปฏิบัติการ</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of this.data ; let  i = index">
-              <th scope="row">{{i+1}}</th>
+            <tr *ngFor="let item of data; let i = index">
+              <th scope="row">{{i + 1}}</th>
               <td>{{item.username}}</td>
               <td>{{item.contact}}</td>
               <td>{{item.information}}</td>
+              <td>{{item.name_district || 'ไม่พบข้อมูล'}}</td>
+              <td>{{item.name_subdistrict || 'ไม่พบข้อมูล'}}</td>
               <td>
-                <button type="button" class="btn btn-info">แก้ไข</button>
+                <button type="button" class="btn btn-info" (click)="btnedit(item.id_user)">แก้ไข</button>
                 <button (click)="remove(item)" type="button" class="btn btn-warning">ลบ</button>
               </td>
             </tr>

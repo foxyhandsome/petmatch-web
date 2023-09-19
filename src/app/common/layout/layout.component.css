@@ -1,24 +1,3 @@
-/* .logo {
-  width: 120px;
-  height: 31px;
-  background-image : url("https://cdn.discordapp.com/attachments/873205221264875570/1153630361054617600/377681091_221570230912190_7930393372092812128_n_1.png") ;
-  background-size:  100px;
-  margin: 16px 24px 16px 0;
-  float: left;
-  background-repeat: no-repeat ;
-} */
-
-.logo {
-  background-image: url("https://cdn.discordapp.com/attachments/873205221264875570/1153630361054617600/377681091_221570230912190_7930393372092812128_n_1.png"); 
-  width: 120px;
-  height: 31px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  float: left;
+.logout-menu-item {
+  color: red; /* กำหนดสีข้อความให้เป็นสีแดง */
 }
-
-[nz-menu] {
-  line-height: 100px;
-}
-
-

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   standalone: true,
@@ -10,21 +11,23 @@ import { Component, inject, OnInit } from '@angular/core';
   styleUrls: ['./manage-user.component.css']
 })
 export class ManageUserComponent implements OnInit {
+  constructor(private router: Router, private _http: HttpClient) {} 
 
-  private _http = inject(HttpClient);
-  data: any[] = []
+  data: any[] = [];
+
   ngOnInit(): void {
-    this.user()
+    this.user();
   }
 
   remove(data: any) {
     try {
-      this._http.delete('http://localhost:3000/user/delete-user/' + data.id_user).subscribe((response: any) => {
-        this.data = response;
-      },
+      this._http.delete('http://localhost:3000/user/delete-user/' + data.id_user).subscribe(
+        (response: any) => {
+          this.data = response;
+        },
         (error: any) => {
           if (error.error.statusCode == 500) {
-
+            // Handle error
           }
         }
       );
@@ -34,8 +37,16 @@ export class ManageUserComponent implements OnInit {
   }
 
   user() {
-    this._http.get('http://localhost:3000/user/get-user').subscribe((response: any) => {
-      this.data = response
-    })
+    this._http.get('http://localhost:3000/user/get-district-subdistrict').subscribe((response: any) => {
+      this.data = response.message;
+    });
+  }
+
+  btnedit(id: any) {
+    this.router.navigate(['/edit-user'], {
+      queryParams: {
+        id_user: id
+      }
+    });
   }
 }

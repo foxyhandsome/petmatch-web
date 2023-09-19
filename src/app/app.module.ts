@@ -12,6 +12,8 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { ReviewComponent } from './modules/review/review.component';
+import { EditUserComponent } from './modules/edit-user/edit-user.component';
+import { EditReviewComponent } from './modules/edit-review/edit-review.component';
 
 
 const antDesignIcons = AllIcons as {
@@ -24,6 +26,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     AppComponent,
     LoginComponent,
     ReviewComponent,
+    EditUserComponent,
+    EditReviewComponent,
     
   ],
   imports: [
