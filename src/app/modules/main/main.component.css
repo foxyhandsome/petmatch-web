@@ -13,3 +13,14 @@
   .background-color {
     background-color: #afafaf;
 }
+
+.inner-content {
+  background: #fff;
+  padding: 24px;
+  min-height:87vh;
+  margin-top: 64px;
+}
+
+nz-content {
+  padding: 0 50px;
+}

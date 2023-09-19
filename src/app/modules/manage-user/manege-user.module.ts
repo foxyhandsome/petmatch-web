@@ -9,6 +9,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { ManageUserComponent } from './manage-user.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { ManageUserRoutingModule } from './manage-user-routing.module';
 
 
 
@@ -29,7 +30,7 @@ const routes: Routes = [
     ManageUserComponent
   ],
   imports: [
-    RouterModule.forChild(routes),  
+    [RouterModule.forChild(routes)],  
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
@@ -37,6 +38,8 @@ const routes: Routes = [
     NzButtonModule,
     NzIconModule,
     NzGridModule,
+    ManageUserRoutingModule
+    
   ],
   exports: [RouterModule],
 })

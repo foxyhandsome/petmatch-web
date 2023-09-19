@@ -1,21 +1,24 @@
-
-ul {
-  background: linear-gradient(to right, #302c2c ,#808494);
-  height: 150px; /* ลดความสูงเพื่อให้แสดงถูกต้อง */
-  display: flex; /* เพิ่มคุณสมบัติ flex เพื่อจัดกลุ่มรายการเมนูและรูปภาพในบรรทัดเดียวกัน */
-  align-items: center; /* จัดให้รายการเมนูและรูปภาพอยู่ตรงกลางกันในแนวตั้ง */
-}
-
-li {
-  font-size: 20px;
-  margin-right: 20px; /* ระยะห่างระหว่างรายการเมนูทางขวา */
-  color: white;
-}
-/* a {
-  color: white;
+/* .logo {
+  width: 120px;
+  height: 31px;
+  background-image : url("https://cdn.discordapp.com/attachments/873205221264875570/1153630361054617600/377681091_221570230912190_7930393372092812128_n_1.png") ;
+  background-size:  100px;
+  margin: 16px 24px 16px 0;
+  float: left;
+  background-repeat: no-repeat ;
 } */
 
-.icon {
-  font-size: 20px;
+.logo {
+  background-image: url("https://cdn.discordapp.com/attachments/873205221264875570/1153630361054617600/377681091_221570230912190_7930393372092812128_n_1.png"); 
+  width: 120px;
+  height: 31px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
 }
+
+[nz-menu] {
+  line-height: 100px;
+}
+
 

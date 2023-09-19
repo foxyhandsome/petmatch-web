@@ -1,32 +1,16 @@
-<ul nz-menu nzMode="horizontal">
-    <li nz-menu-item nzSelected>
-      <img [src]="imgpetmatch" style="width: 280px; margin-right: 20px;">
-    </li>
-    <li nz-menu-item nzSelected>
-        <a routerLink="/main">
-        <span nz-icon nzType="home" nzTheme="outline" class="icon"></span>
-        <span>หน้าเเรก</span>
-        </a>
-    </li>
-    <li nz-menu-item nzSelected>
-        <a routerLink="/manage-user">
-        <span nz-icon nzType="user" nzTheme="outline" class="icon"></span>
-        <span>ผู้ใช้</span>
-        </a>
-    </li>
-    <li nz-menu-item nzSelected>
-        <a routerLink="/review">
-        <span nz-icon nzType="form" nzTheme="outline" class="icon"></span>
-        <span>รีวิว</span>
-    </a>
-    </li>
-    <li nz-menu-item nzSelected>
-        <a routerLink="/login">
-        <span nz-icon nzType="logout" nzTheme="outline" class="icon" style="color: red;"></span>
-        <span style="color: red;">ออกจากระบบ</span>
-        </a>
-    </li>
-</ul>
+<nz-layout>
+    <header>
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item [routerLink]="['/main']">หน้าแรก</li>
+        <li nz-menu-item [routerLink]="['/manage-user']">ผู้ใช้ทั้งหมด</li>
+        <li nz-menu-item [routerLink]="['/review']">รีวิวทั้งหมด</li>
+        <li nz-menu-item [routerLink]="['/login']">ออกจากระบบ</li>
+      </ul>
+    </header>
+    <router-outlet></router-outlet>
+  </nz-layout>
+
 
     <!-- Page Content  -->
     <div id="content">
