@@ -1,7 +1,9 @@
 <nz-layout>
   <header>
-    <div class="logo"></div>
+    <!-- <div class="logo"></div> -->
+
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <img [src]="imgpetmatch" alt="" style="width: 150px;">
       <li nz-menu-item [routerLink]="['/main']">หน้าแรก</li>
       <li nz-menu-item [routerLink]="['/user-list']">ผู้ใช้ทั้งหมด</li>
       <li nz-menu-item [routerLink]="['/review']">รีวิวทั้งหมด</li>
