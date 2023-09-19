@@ -1,34 +1,35 @@
 <nz-layout>
-    <header>
-      <div class="logo"></div>
-      <ul nz-menu nzTheme="dark" nzMode="horizontal">
-        <li nz-menu-item [routerLink]="['/main']">หน้าแรก</li>
-        <li nz-menu-item [routerLink]="['/manage-user']">ผู้ใช้ทั้งหมด</li>
-        <li nz-menu-item [routerLink]="['/review']">รีวิวทั้งหมด</li>
-        <li nz-menu-item [routerLink]="['/login']">ออกจากระบบ</li>
-      </ul>
-    </header>
-    <router-outlet></router-outlet>
-  </nz-layout>
+  <header>
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li nz-menu-item [routerLink]="['/main']">หน้าแรก</li>
+      <li nz-menu-item [routerLink]="['/user-list']">ผู้ใช้ทั้งหมด</li>
+      <li nz-menu-item [routerLink]="['/review']">รีวิวทั้งหมด</li>
+      <li nz-menu-item [routerLink]="['/login']">ออกจากระบบ</li>
+    </ul>
+  </header>
+</nz-layout>
 
 
-    <!-- Page Content  -->
-    <div id="content">
-        <div class="container-fluid">
-            <!-- alert success -->
-            <div class="alert alert-success alert-dismissible fade show" style="display: none" id="alert-success">
-                <a class="close" onclick="$('#alert-success').hide()">×</a>
-                <strong>Warning!</strong> Best check yo self, you're not looking too good.
-            </div>
-            <!-- alert danger -->
-            <div class="alert alert-danger alert-dismissible fade show" style="display: none" id="alert-danger">
-                <a class="close" onclick="$('#alert-danger').hide()">×</a>
-                <strong>Danger!</strong> fail process.
-            </div>
-            <!-- alert warning -->
-            <div class="alert alert-warning alert-dismissible fade show" style="display: none" id="alert-warning">
-                <a class="close" onclick="$('#alert-warning').hide()">×</a>
-                <strong>Warning!</strong> Warning process.
-            </div>
-            <router-outlet></router-outlet>
-        </div>
+<!-- Page Content  -->
+<div id="content">
+  <div class="container-fluid">
+    <!-- alert success -->
+    <div class="alert alert-success alert-dismissible fade show" style="display: none" id="alert-success">
+      <a class="close" onclick="$('#alert-success').hide()">×</a>
+      <strong>Warning!</strong> Best check yo self, you're not looking too good.
+    </div>
+    <!-- alert danger -->
+    <div class="alert alert-danger alert-dismissible fade show" style="display: none" id="alert-danger">
+      <a class="close" onclick="$('#alert-danger').hide()">×</a>
+      <strong>Danger!</strong> fail process.
+    </div>
+    <!-- alert warning -->
+    <div class="alert alert-warning alert-dismissible fade show" style="display: none" id="alert-warning">
+      <a class="close" onclick="$('#alert-warning').hide()">×</a>
+      <strong>Warning!</strong> Warning process.
+    </div>
+    <div style="padding: 10px;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
