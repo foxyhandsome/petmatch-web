@@ -1,1 +1,48 @@
-<p>manage-pet works!</p>
+<div class="card mt-2">
+    <div class="card-header" >
+      <strong>สัตว์เลี้ยงในระบบ</strong>
+    </div>
+    <button (click)="btncreate()" type="button"  class="btn btn-success col-1">เพิ่มสัตว์เลี้ยง</button>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ไอดีสัตว์เลี้ยง</th>
+                <th scope="col">รูป</th>
+                <th scope="col">เพศ</th>
+                <th scope="col">ใบรับรองเเพทย์</th>
+                <th scope="col">ชื่อ</th>
+                <th scope="col">อายุ</th>
+                <th scope="col">สีขน</th>
+                <th scope="col">กรุ๊ปเลือด</th>
+                <th scope="col">เจ้าของ</th>
+                <th scope="col">สายพันธุ์</th>
+                <th scope="col">ปฏิบัติการ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data">
+                <td>{{item.id_pet}}</td>
+                <td>{{item.picture_pet}}</td>
+                <td>{{item.sex_pet}}</td>
+                <td>{{item.health_pet}}</td>
+                <td>{{item.name_pet}}</td>
+                <td>{{item.age_pet}}</td>
+                <td>{{item.type_skin}}</td>
+                <td>{{item.type_blood}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.name_breed}}</td>
+                <td>
+                  <button (click)="btneditpet(item.id_pet)" type="button" class="btn btn-info">แก้ไข</button>
+                  <button (click)="removepet(item)" type="button" class="btn btn-danger">ลบ</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

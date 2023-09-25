@@ -19,7 +19,7 @@ export class ManageUserComponent implements OnInit {
     this.user();
   }
 
-  remove(data: any) {
+  removeuser(data: any) {
     try {
       this._http.delete('http://localhost:3000/user/delete-user/' + data.id_user).subscribe(
         (response: any) => {
@@ -37,12 +37,12 @@ export class ManageUserComponent implements OnInit {
   }
 
   user() {
-    this._http.get('http://localhost:3000/user/get-district-subdistrict').subscribe((response: any) => {
+    this._http.get('http://localhost:3000/user/get-userwithdistrict-subdistrict').subscribe((response: any) => {
       this.data = response.message;
     });
   }
 
-  btnedit(id: any) {
+  btnedituser(id: any) {
     this.router.navigate(['/edit-user'], {
       queryParams: {  
         id_user: id

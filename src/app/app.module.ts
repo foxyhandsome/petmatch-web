@@ -15,6 +15,8 @@ import { EditUserComponent } from './modules/edit-user/edit-user.component';
 import { EditReviewComponent } from './modules/edit-review/edit-review.component';
 import { ManageReviewComponent } from './modules/manage-review/manage-review.component';
 import { ManagePetComponent } from './modules/manage-pet/manage-pet.component';
+import { CreatePetComponent } from './modules/create-pet/create-pet.component';
+import { EditPetComponent } from './modules/edit-pet/edit-pet.component';
 
 
 const antDesignIcons = AllIcons as {
@@ -31,6 +33,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     EditReviewComponent,
     ManageReviewComponent,
     ManagePetComponent,
+    CreatePetComponent,
+    EditPetComponent,
     
   ],
   imports: [
