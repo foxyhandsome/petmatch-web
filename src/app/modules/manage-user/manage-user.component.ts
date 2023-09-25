@@ -44,9 +44,14 @@ export class ManageUserComponent implements OnInit {
 
   btnedit(id: any) {
     this.router.navigate(['/edit-user'], {
-      queryParams: {
+      queryParams: {  
         id_user: id
       }
+    });
+  }
+
+  btncreate() {
+    this.router.navigate(['/create-user'], {
     });
   }
 }

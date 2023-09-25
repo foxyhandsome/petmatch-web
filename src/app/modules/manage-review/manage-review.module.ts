@@ -8,7 +8,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NzGridModule } from 'ng-zorro-antd/grid';
-import { ReviewComponent } from './review.component';
+import { ManageReviewComponent } from './manage-review.component';
 
 
 
@@ -21,15 +21,15 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
 
 
 const routes: Routes = [
-  { path: 'review', component: ReviewComponent },
+  { path: 'review', component: ManageReviewComponent },
 ];
 
 @NgModule({
   declarations: [
-    ReviewComponent
+    ManageReviewComponent
   ],
   imports: [
-    RouterModule.forChild(routes),  
+    RouterModule.forChild(routes),
     FormsModule,
     CommonModule,
     ReactiveFormsModule,

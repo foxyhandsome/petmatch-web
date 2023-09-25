@@ -4,7 +4,8 @@ import { MainComponent } from 'src/app/modules/main/main.component';
 import { ManageUserComponent } from 'src/app/modules/manage-user/manage-user.component';
 import { LayoutComponent } from './layout.component';
 import { EditUserComponent } from 'src/app/modules/edit-user/edit-user.component';
-import { ReviewComponent } from 'src/app/modules/review/review.component';
+import { ManageReviewComponent } from 'src/app/modules/manage-review/manage-review.component';
+import { CreateUserComponent } from 'src/app/modules/create-user/create-user.component';
 
 
 const routes: Routes = [
@@ -12,9 +13,10 @@ const routes: Routes = [
     path: '', component: LayoutComponent,
     children: [
       { path: 'main', component: MainComponent, },
-      { path: 'user-list', component: ManageUserComponent, },
+      { path: 'manage-user', component: ManageUserComponent, },
       { path: 'edit-user', component: EditUserComponent },
-      { path: 'review', component: ReviewComponent}
+      { path: 'manage-review', component: ManageReviewComponent},
+      { path: 'create-user', component: CreateUserComponent}
 
     ]
   },

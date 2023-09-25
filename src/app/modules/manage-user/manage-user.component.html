@@ -2,6 +2,7 @@
   <div class="card-header" >
     <strong>ผู้ใช้ในระบบ</strong>
   </div>
+  <button (click)="btncreate()" type="button"  class="btn btn-success col-1">เพิ่มผู้ใช้</button>
   <div class="card-body">
     <div class="row">
       <div class="col">
@@ -18,16 +19,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of data; let i = index">
-              <th scope="row">{{i + 1}}</th>
+            <tr *ngFor="let item of data">
+              <td>{{item.id_user}}</td>
               <td>{{item.username}}</td>
               <td>{{item.contact}}</td>
               <td>{{item.information}}</td>
-              <td>{{item.name_district || 'ไม่พบข้อมูล'}}</td>
-              <td>{{item.name_subdistrict || 'ไม่พบข้อมูล'}}</td>
+              <td>{{item.name_district}}</td>
+              <td>{{item.name_subdistrict}}</td>
               <td>
-                <button type="button" class="btn btn-info" (click)="btnedit(item.id_user)">แก้ไข</button>
-                <button (click)="remove(item)" type="button" class="btn btn-warning">ลบ</button>
+                <button (click)="btnedit(item.id_user)" type="button" class="btn btn-info">แก้ไข</button>
+                <button (click)="remove(item)" type="button" class="btn btn-danger">ลบ</button>
               </td>
             </tr>
           </tbody>

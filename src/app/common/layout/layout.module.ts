@@ -8,6 +8,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { CreateUserComponent } from 'src/app/modules/create-user/create-user.component';
 
 
 const antDesignIcons = AllIcons as {
@@ -18,6 +19,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
 @NgModule({
   declarations: [
     LayoutComponent,
+    CreateUserComponent
    
   ],
   imports: [

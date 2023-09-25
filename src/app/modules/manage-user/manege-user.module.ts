@@ -17,7 +17,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
 
 
 const routes: Routes = [
-  { path: 'manage-user', component: ManageUserComponent },
+  { path: 'create-user', component: ManageUserComponent },
 ];
 
 @NgModule({
