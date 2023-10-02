@@ -37,7 +37,7 @@ export class ManageUserComponent implements OnInit {
   }
 
   user() {
-    this._http.get('http://localhost:3000/user/get-userwithdistrict-subdistrict').subscribe((response: any) => {
+    this._http.get('http://localhost:3000/user/get-user-withdistrict-subdistrict').subscribe((response: any) => {
       this.data = response.message;
     });
   }

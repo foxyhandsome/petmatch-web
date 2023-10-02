@@ -1,1 +1,36 @@
-<p>edit-pet works!</p>
+<div class="card">
+    <div class="card-header">
+      <strong>เเก้ไขข้อมูลสัตว์เลี้ยง</strong>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <label for="imagepet" style="font-size: 1.25rem; ">รูปสัตว์เลี้ยง</label>
+            <input type="file" class="form-control" accept="image/png,image/jpeg">
+        </div>
+        <div class="row">
+            <label for="imagepet" style="font-size: 1.25rem; ">ใบรับรองเเพทย์</label>
+            <input type="file" class="form-control" accept="image/png,image/jpeg" >
+        </div>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="namepet" style="font-size: 1.25rem;">ชื่อสัตว์เลี้ยง</label>
+            <input type="text" class="form-control form-control-lg" id="namepet" placeholder="ชื่อสัตว์เลี้ยง" >
+          </div>
+          <div class="form-group col-md-3">
+            <label for="namepet" style="font-size: 1.25rem;">อายุสัตว์เลี้ยง</label>
+            <input type="text" class="form-control form-control-lg" id="agepet" placeholder="อายุสัตว์เลี้ยง" >
+          </div>
+        </div>
+        <div class="row">
+            <button class="form-group btn btn-info dropdown-toggle col-sm-2" type="button" id="sexpet" data-toggle="dropdown">
+              เพศ
+            </button>
+            <button class="form-group btn btn-info dropdown-toggle col-sm-2" type="button" id="petbreed" data-toggle="dropdown">
+              สายพันธุ์
+            </button>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
+        </div>
+    </div>
+  </div>

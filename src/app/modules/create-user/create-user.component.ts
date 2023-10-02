@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -7,10 +10,30 @@ import { Component } from '@angular/core';
 })
 export class CreateUserComponent {
 
+  validateForm!: FormGroup;
+  constructor(private fb: FormBuilder, private router: Router, private _http: HttpClient) { }
+
+
   data: any[] = []
   ngOnInit(): void {
-
+    this.validateForm = this.fb.group({
+      id_user: new FormControl<number | null>(null),
+      username: new FormControl<string | null>(null, Validators.required),
+      password: new FormControl<string | null>(null, Validators.required),
+      information: new FormControl<string | null>(null),
+      contact: new FormControl<string | null>(null),
+      id_district: new FormControl<number | null>(null),
+      id_subdistrict: new FormControl<number | null>(null),
+      id_typeuser: new FormControl<number | null>(null),
+    });
   }
 
-
+  createuser():void {
+    this._http.post('http://localhost:3000/user/create-user', {}).subscribe((response: any) => {
+        this.data = response;
+        this.router.navigate(['/manage-user']);
+      },(error) => {
+        console.error('เกิดข้อผิดพลาด:', error);
+    });
+  }
 }

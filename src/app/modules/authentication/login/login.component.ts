@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       'error',
       'การเข้าสู่ระบบ',
       'ผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง',
-      { nzStyle: { position: 'topleft' } }
+      { nzStyle: { position: 'top' } }
     );
   }
 }
