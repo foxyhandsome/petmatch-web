@@ -9,6 +9,7 @@ import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { CreateUserComponent } from 'src/app/modules/create-user/create-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const antDesignIcons = AllIcons as {
@@ -28,7 +29,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzMenuModule,
     NzIconModule,
     NzLayoutModule,
-    NzBreadCrumbModule
+    NzBreadCrumbModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LayoutModule { }
