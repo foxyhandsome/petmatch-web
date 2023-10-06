@@ -24,9 +24,9 @@ export class CreatePetComponent {
     this.getuser()
     this.validateForm = this.fb.group({
       id_pet: new FormControl<number | null>(null),
-      picture_pet: new FormControl<Blob | null>(null),
+      picture_pet: new FormControl<string | null>(null),
       sex_pet: new FormControl<string | null>(null),
-      health_pet: new FormControl<Blob| null>(null),
+      health_pet: new FormControl<string| null>(null),
       name_pet: new FormControl<string | null>(null),
       age_pet: new FormControl<string | null>(null),
       id_skin: new FormControl<number | null>(null),
@@ -81,4 +81,25 @@ export class CreatePetComponent {
       console.error('เกิดข้อผิดพลาด:', error);
     });
   }
+
+  handleUploadimg(event:any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        console.log(reader.result);
+        this.validateForm.get("picture_pet")?.patchValue(reader.result)
+    };
+}
+
+  handleUploadimgcert(event:any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      console.log(reader.result);
+      this.validateForm.get("health_pet")?.patchValue(reader.result)
+  };
+}
+
 }

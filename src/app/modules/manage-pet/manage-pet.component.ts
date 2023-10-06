@@ -13,7 +13,7 @@ export class ManagePetComponent implements OnInit {
   data: any[] = [];
 
   ngOnInit(): void {
-    this.pet();
+    this.petlist();
   }
 
   removepet(data: any) {
@@ -32,7 +32,7 @@ export class ManagePetComponent implements OnInit {
     }
   }
 
-  pet() {
+  petlist() {
     this._http.get('http://localhost:3000/pet/get-pet-withinfo').subscribe((response: any) => {
       this.data = response.message;
     });

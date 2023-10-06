@@ -25,9 +25,9 @@
             <tbody>
               <tr *ngFor="let item of data">
                 <td>{{item.id_pet}}</td>
-                <td>{{item.picture_pet}}</td>
+                <td><img style="width: 200px;" [src]="item.picture_pet"></td>
                 <td>{{item.sex_pet}}</td>
-                <td>{{item.health_pet}}</td>
+                <td><img style="width: 200px;" [src]="item.health_pet"></td>
                 <td>{{item.name_pet}}</td>
                 <td>{{item.age_pet}}</td>
                 <td>{{item.type_skin}}</td>

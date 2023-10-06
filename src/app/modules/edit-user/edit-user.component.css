@@ -1,0 +1,9 @@
+input:invalid {
+    border-color: red; 
+    background-color: pink; 
+}
+
+span.required {
+    color: red;
+  }
+
