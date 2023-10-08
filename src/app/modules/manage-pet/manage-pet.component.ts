@@ -27,8 +27,8 @@ export class ManagePetComponent implements OnInit {
           }
         }
       );
-    } catch (e) {
-      console.error("An unexpected error occurred:", e);
+    } catch (error) {
+      console.error("An unexpected error occurred:", error);
     }
   }
 

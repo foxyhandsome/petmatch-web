@@ -47,7 +47,7 @@ export class EditUserComponent implements OnInit{
       next: (response: any) => {
         const data: any = response;
         console.log(data)
-        this.validateForm.patchValue(data);
+        this.validateForm.patchValue(data[0]);
         // console.log(data)
       },
       error: (err) => {
