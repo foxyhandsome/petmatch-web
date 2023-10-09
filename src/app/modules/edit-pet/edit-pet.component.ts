@@ -36,7 +36,7 @@ export class EditPetComponent {
     this.validateForm = this.fb.group({
       id_pet: new FormControl<number | null>(null),
       picture_pet: new FormControl<string | null>(null),
-      sex_pet: new FormControl<string | null>(null),
+      sex_pet: new FormControl<string | null>("ผู้"),
       health_pet: new FormControl<string| null>(null),
       name_pet: new FormControl<string | null>(null),
       age_pet: new FormControl<string | null>(null),
@@ -53,7 +53,16 @@ export class EditPetComponent {
       next: (response: any) => {
         const data: any = response;
         console.log(data)
-        this.validateForm.patchValue(data[0]);
+        // this.validateForm.patchValue(data[0]);
+        this.validateForm.get("picture_pet")?.patchValue(null);
+        this.validateForm.get("health_pet")?.patchValue(null);
+        this.validateForm.get("sex_pet")?.patchValue(data[0].sex_pet);
+        this.validateForm.get("name_pet")?.patchValue(data[0].name_pet);
+        this.validateForm.get("age_pet")?.patchValue(data[0].age_pet);
+        this.validateForm.get("id_skin")?.patchValue(data[0].id_skin);
+        this.validateForm.get("id_blood")?.patchValue(data[0].id_blood);
+        this.validateForm.get("id_user")?.patchValue(data[0].id_user);
+        this.validateForm.get("id_breed")?.patchValue(data[0].id_breed);
         console.log(data)
       },
       error: (err) => {

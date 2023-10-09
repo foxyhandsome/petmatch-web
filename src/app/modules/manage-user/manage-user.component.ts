@@ -16,7 +16,7 @@ export class ManageUserComponent implements OnInit {
   data: any[] = [];
 
   ngOnInit(): void {
-    this.user();
+    this.getuser();
   }
 
   removeuser(data: any) {
@@ -24,6 +24,7 @@ export class ManageUserComponent implements OnInit {
       this._http.delete('http://localhost:3000/user/delete-user/' + data.id_user).subscribe(
         (response: any) => {
           this.data = response;
+          this.getuser()
         },
         (error: any) => {
           if (error.error.statusCode == 500) {
@@ -36,7 +37,7 @@ export class ManageUserComponent implements OnInit {
     }
   }
 
-  user() {
+  getuser() {
     this._http.get('http://localhost:3000/user/get-user-withdistrict-subdistrict').subscribe((response: any) => {
       this.data = response.message;
     });

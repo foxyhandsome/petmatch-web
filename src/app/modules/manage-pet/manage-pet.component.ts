@@ -21,6 +21,7 @@ export class ManagePetComponent implements OnInit {
       this._http.delete('http://localhost:3000/pet/delete-Pet/' + data.id_pet).subscribe(
         (response: any) => {
           this.data = response;
+          this.petlist()
         },
         (error: any) => {
           if (error.error.statusCode == 500) {
