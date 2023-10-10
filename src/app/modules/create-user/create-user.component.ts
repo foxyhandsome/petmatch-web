@@ -18,13 +18,13 @@ export class CreateUserComponent implements OnInit{
   ngOnInit(): void {
     this.getdistrict()
     this.validateForm = this.fb.group({
-      id_user: new FormControl<number | null>(null),
+      id_user: new FormControl<number | null>(null, Validators.required),
       username: new FormControl<string | null>(null, Validators.required),
       password: new FormControl<string | null>(null, Validators.required),
-      information: new FormControl<string | null>(null),
-      contact: new FormControl<string | null>(null),
-      id_district: new FormControl<number | null>(null),
-      id_subdistrict: new FormControl<number | null>(null),
+      information: new FormControl<string | null>(null, Validators.required),
+      contact: new FormControl<string | null>(null, Validators.required),
+      id_district: new FormControl<number | null>(null, Validators.required),
+      id_subdistrict: new FormControl<number | null>(null, Validators.required),
       id_typeuser: new FormControl<number | null>(1),
     });
   }

@@ -23,16 +23,16 @@ export class CreatePetComponent {
     this.getpetblood()
     this.getuserbyuser()
     this.validateForm = this.fb.group({
-      id_pet: new FormControl<number | null>(null),
-      picture_pet: new FormControl<string | null>(null),
-      sex_pet: new FormControl<string | null>(null),
-      health_pet: new FormControl<string| null>(null),
-      name_pet: new FormControl<string | null>(null),
-      age_pet: new FormControl<string | null>(null),
-      id_skin: new FormControl<number | null>(null),
-      id_blood: new FormControl<number | null>(null),
-      id_user: new FormControl<number | null>(null),
-      id_breed: new FormControl<number | null>(null),
+      id_pet: new FormControl<number | null>(null, Validators.required),
+      picture_pet: new FormControl<string | null>(null,  Validators.required),
+      sex_pet: new FormControl<string | null>(null,  Validators.required),
+      health_pet: new FormControl<string| null>(null,  Validators.required),
+      name_pet: new FormControl<string | null>(null,  Validators.required),
+      age_pet: new FormControl<string | null>(null,  Validators.required),
+      id_skin: new FormControl<number | null>(null,  Validators.required),
+      id_blood: new FormControl<number | null>(null,  Validators.required),
+      id_user: new FormControl<number | null>(null,  Validators.required),
+      id_breed: new FormControl<number | null>(null,  Validators.required),
     });
   }
 
