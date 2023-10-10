@@ -21,7 +21,7 @@ export class CreatePetComponent {
     this.getpetbreed()
     this.getpetskin()
     this.getpetblood()
-    this.getuser()
+    this.getuserbyuser()
     this.validateForm = this.fb.group({
       id_pet: new FormControl<number | null>(null),
       picture_pet: new FormControl<string | null>(null),
@@ -73,8 +73,8 @@ export class CreatePetComponent {
     });
   }
 
-  getuser() {
-    this._http.get('http://localhost:3000/user/get-user').subscribe((response: any) => {
+  getuserbyuser() {
+    this._http.get('http://localhost:3000/user/get-user-by-user').subscribe((response: any) => {
       const data: any = response;
       this.listuser = data;
     }, (error) => {
