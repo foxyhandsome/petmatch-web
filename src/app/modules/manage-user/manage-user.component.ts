@@ -55,4 +55,12 @@ export class ManageUserComponent implements OnInit {
     this.router.navigate(['/create-user'], {
     });
   }
+
+  btncreatepet(id: any) {
+    this.router.navigate(['/create-pet'], {
+      queryParams: {  
+        id_user: id
+      }
+    });
+  }
 }

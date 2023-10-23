@@ -47,8 +47,4 @@ export class ManagePetComponent implements OnInit {
     });
   }
 
-  btncreate() {
-    this.router.navigate(['/create-pet'], {
-    });
-  }
 }

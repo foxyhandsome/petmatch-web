@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-pet',
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CreatePetComponent {
   validateForm!: FormGroup;
+  private _activatedRoute = inject(ActivatedRoute);
   constructor(private fb: FormBuilder, private router: Router, private _http: HttpClient) { }
 
   listpetbreed: any[] = []
@@ -17,11 +18,15 @@ export class CreatePetComponent {
   listpetblood: any[] = []
   listuser: any[] = []
   data: any[] = []
+  userbyid: any[] = []
+
   ngOnInit(): void {
     this.getpetbreed()
     this.getpetskin()
     this.getpetblood()
-    this.getuserbyuser()
+  
+
+    // this.getuserbyuser()
     this.validateForm = this.fb.group({
       id_pet: new FormControl<number | null>(null, Validators.required),
       picture_pet: new FormControl<string | null>(null,  Validators.required),
@@ -34,6 +39,14 @@ export class CreatePetComponent {
       id_user: new FormControl<number | null>(null,  Validators.required),
       id_breed: new FormControl<number | null>(null,  Validators.required),
     });
+    this._activatedRoute.queryParams.subscribe(params => {
+      const iduser = params['id_user'];
+      console.log(iduser)
+      if (iduser) {
+        this.userbyid = iduser;
+        this.validateForm.get("id_user")?.patchValue(iduser)
+      }
+    });
   }
 
 
@@ -45,6 +58,20 @@ export class CreatePetComponent {
         console.error('เกิดข้อผิดพลาด:', error);
     });
   }
+
+  // getuserbyid():void{
+  //   this._http.get('http://localhost:3000/user/get-user/' + this.userbyid).subscribe({
+  //     next: (response: any) => {
+  //       const data: any = response;
+  //       console.log(data)
+  //       this.validateForm.patchValue(data[0]);
+  //       // console.log(data)
+  //     },
+  //     error: (err) => {
+  //       console.error('Error', err);
+  //     },
+  //   });
+  // }
 
   getpetbreed() {
     this._http.get('http://localhost:3000/petbreed/get-petbreed').subscribe((response: any) => {
@@ -73,14 +100,14 @@ export class CreatePetComponent {
     });
   }
 
-  getuserbyuser() {
-    this._http.get('http://localhost:3000/user/get-user-by-user').subscribe((response: any) => {
-      const data: any = response;
-      this.listuser = data;
-    }, (error) => {
-      console.error('เกิดข้อผิดพลาด:', error);
-    });
-  }
+  // getuserbyuser() {
+  //   this._http.get('http://localhost:3000/user/get-user-by-user').subscribe((response: any) => {
+  //     const data: any = response;
+  //     this.listuser = data;
+  //   }, (error) => {
+  //     console.error('เกิดข้อผิดพลาด:', error);
+  //   });
+  // }
 
   handleUploadimg(event:any) {
     const file = event.target.files[0];

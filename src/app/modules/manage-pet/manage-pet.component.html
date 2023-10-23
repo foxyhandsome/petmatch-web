@@ -2,7 +2,6 @@
     <div class="card-header" >
       <strong>สัตว์เลี้ยงในระบบ</strong>
     </div>
-    <button (click)="btncreate()" type="button"  class="btn btn-success col-1">เพิ่มสัตว์เลี้ยง</button>
     <div class="card-body">
       <div class="row">
         <div class="col">
@@ -35,7 +34,7 @@
                 <td>{{item.username}}</td>
                 <td>{{item.name_breed}}</td>
                 <td>
-                  <button (click)="btneditpet(item.id_pet)" type="button" class="btn btn-info">แก้ไข</button>
+                  <button (click)="btneditpet(item.id_pet)" type="button" class="btn btn-info">แก้ไขสัตว์เลี้ยง</button>
                   <button (click)="removepet(item)" type="button" class="btn btn-danger">ลบ</button>
                 </td>
               </tr>
