@@ -18,6 +18,9 @@ export class ManagePetComponent implements OnInit {
 
   removepet(data: any) {
     try {
+      const deleteConfirmed = window.confirm('ต้องการลบข้อมูลสัตว์เลี้ยงใช่หรือไม่ ?');
+
+    if (deleteConfirmed) {
       this._http.delete('http://localhost:3000/pet/delete-Pet/' + data.id_pet).subscribe(
         (response: any) => {
           this.data = response;
@@ -28,6 +31,7 @@ export class ManagePetComponent implements OnInit {
           }
         }
       );
+    }
     } catch (error) {
       console.error("An unexpected error occurred:", error);
     }
@@ -47,4 +51,7 @@ export class ManagePetComponent implements OnInit {
     });
   }
 
+  convertImage(image:string) {
+    return "data:image/jpeg;base64," + image
+  }
 }

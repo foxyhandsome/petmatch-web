@@ -21,6 +21,9 @@ export class ManageUserComponent implements OnInit {
 
   removeuser(data: any) {
     try {
+      const deleteConfirmed = window.confirm('ต้องการลบข้อมูลผู้ใช้ใช่หรือไม่ ?');
+
+    if (deleteConfirmed) {
       this._http.delete('http://localhost:3000/user/delete-user/' + data.id_user).subscribe(
         (response: any) => {
           this.data = response;
@@ -32,6 +35,7 @@ export class ManageUserComponent implements OnInit {
           }
         }
       );
+    }
     } catch (e) {
       console.error("An unexpected error occurred:", e);
     }

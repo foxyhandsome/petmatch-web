@@ -122,8 +122,16 @@ export class EditPetComponent {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
+      let data : any = "";
+      if (reader.result?.toString().startsWith('data:image/png;base64,')) {
+        data = reader.result?.toString().replace('data:image/png;base64,', '');
+      } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
+        data = reader.result?.toString().replace('data:image/jpeg;base64,', '');
+      } else {
+        data = reader.result?.toString();
+      }
         console.log(reader.result);
-        this.validateForm.get("picture_pet")?.patchValue(reader.result)
+        this.validateForm.get("picture_pet")?.patchValue(data)
     };
 }
 
@@ -132,8 +140,16 @@ export class EditPetComponent {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
+      let data : any = "";
+      if (reader.result?.toString().startsWith('data:image/png;base64,')) {
+        data = reader.result?.toString().replace('data:image/png;base64,', '');
+      } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
+        data = reader.result?.toString().replace('data:image/jpeg;base64,', '');
+      } else {
+        data = reader.result?.toString();
+      }
       console.log(reader.result);
-      this.validateForm.get("health_pet")?.patchValue(reader.result)
+      this.validateForm.get("health_pet")?.patchValue(data)
   };
 }
 
