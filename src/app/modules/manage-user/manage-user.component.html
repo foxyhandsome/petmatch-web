@@ -27,9 +27,9 @@
               <td>{{item.name_district}}</td>
               <td>{{item.name_subdistrict}}</td>
               <td>
-                <button (click)="btncreatepet(item.id_user)" type="button" class="btn btn-warning">เพิ่มสัตว์เลี้ยง</button>
+                <button (click)="btncreatepet(item.id_user)" type="button" class="btn btn-success">เพิ่มสัตว์เลี้ยง</button>
                 <button (click)="btnedituser(item.id_user)" type="button" class="btn btn-info">แก้ไขผู้ใช้</button>
-                <button (click)="removeuser(item)" type="button" class="btn btn-danger">ลบ</button>
+                <button (click)="removeuser(item.id_user)" type="button" class="btn btn-danger">ลบ</button>
               </td>
             </tr>
           </tbody>

@@ -13,7 +13,7 @@ export class ManageReviewComponent implements OnInit{
     data: any[] = [];
   
     ngOnInit(): void {
-      this.review();
+      this.allreview();
     }
   
     remove(data: any) {
@@ -32,13 +32,13 @@ export class ManageReviewComponent implements OnInit{
       }
     }
   
-    review() {
-      this._http.get('http://localhost:3000/review/get-review').subscribe((response: any) => {
+    allreview() {
+      this._http.get('http://localhost:3000/review/get-all-review').subscribe((response: any) => {
         this.data = response.message;
       });
     }
   
-    btnedit(id: any) {
+    btnedituser(id: any) {
       this.router.navigate(['/edit-user'], {
         queryParams: {
           id_user: id

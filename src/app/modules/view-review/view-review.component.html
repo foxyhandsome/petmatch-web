@@ -11,8 +11,8 @@
                 <th scope="col">ไอดีรีวิว</th>
                 <th scope="col">ข้อมูลรีวิว</th>
                 <th scope="col">ดาว</th>
-                <th scope="col">ชื่อผู้ใช้</th>
-                <th scope="col">ชื่อสัตว์เลี้ยง</th>
+                <th scope="col">ชื่อผู้ใช้ที่มารีวิว</th>
+                <th scope="col">ชื่อสัตว์เลี้ยงของเจ้าของที่มารีวิว</th>
                 <th scope="col">ปฏิบัติการ</th>
               </tr>
             </thead>
@@ -24,8 +24,8 @@
                 <td>{{item.username}}</td>
                 <td>{{item.name_pet}}</td>
                 <td>
-                  <button type="button" class="btn btn-info" (click)="btnedituser(item.id_user)">แก้ไข</button>
-                  <button (click)="remove(item)" type="button" class="btn btn-warning">ลบ</button>
+                  <button (click)="btneditreview(item.id_review)" type="button" class="btn btn-info" >แก้ไข</button>
+                  <button (click)="removereview(item.id_review)" type="button" class="btn btn-danger">ลบ</button>
                 </td>
               </tr>
             </tbody>
@@ -34,3 +34,4 @@
       </div>
     </div>
   </div>
+

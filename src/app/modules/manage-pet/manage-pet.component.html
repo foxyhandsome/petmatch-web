@@ -35,7 +35,8 @@
                 <td>{{item.name_breed}}</td>
                 <td>
                   <button (click)="btneditpet(item.id_pet)" type="button" class="btn btn-info">แก้ไขสัตว์เลี้ยง</button>
-                  <button (click)="removepet(item)" type="button" class="btn btn-danger">ลบ</button>
+                  <button (click)="removepet(item.id_pet)" type="button" class="btn btn-danger">ลบ</button>
+                  <button (click)="btnreview(item.id_pet)" type="button" class="btn btn-warning">ดูรีวิว</button>
                 </td>
               </tr>
             </tbody>

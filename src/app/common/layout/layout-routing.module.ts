@@ -4,11 +4,12 @@ import { MainComponent } from 'src/app/modules/main/main.component';
 import { ManageUserComponent } from 'src/app/modules/manage-user/manage-user.component';
 import { LayoutComponent } from './layout.component';
 import { EditUserComponent } from 'src/app/modules/edit-user/edit-user.component';
-import { ManageReviewComponent } from 'src/app/modules/manage-review/manage-review.component';
 import { CreateUserComponent } from 'src/app/modules/create-user/create-user.component';
 import { ManagePetComponent } from 'src/app/modules/manage-pet/manage-pet.component';
 import { EditPetComponent } from 'src/app/modules/edit-pet/edit-pet.component';
 import { CreatePetComponent } from 'src/app/modules/create-pet/create-pet.component';
+import { ViewReviewComponent } from 'src/app/modules/view-review/view-review.component';
+import { EditReviewComponent } from 'src/app/modules/edit-review/edit-review.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,9 @@ const routes: Routes = [
       { path: 'manage-pet', component: ManagePetComponent},
       { path: 'edit-pet', component: EditPetComponent},
       { path: 'create-pet', component: CreatePetComponent},
-      { path: 'manage-review', component: ManageReviewComponent},
+      { path: 'view-review', component: ViewReviewComponent},
+      { path: 'edit-review', component: EditReviewComponent},
+      // { path: 'manage-review', component: ManageReviewComponent},
 
     ]
   },

@@ -17,6 +17,7 @@ import { ManageReviewComponent } from './modules/manage-review/manage-review.com
 import { ManagePetComponent } from './modules/manage-pet/manage-pet.component';
 import { CreatePetComponent } from './modules/create-pet/create-pet.component';
 import { EditPetComponent } from './modules/edit-pet/edit-pet.component';
+import { ViewReviewComponent } from './modules/view-review/view-review.component';
 
 
 const antDesignIcons = AllIcons as {
@@ -35,7 +36,6 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ManagePetComponent,
     CreatePetComponent,
     EditPetComponent,
-    
   ],
   imports: [
     BrowserAnimationsModule,

@@ -16,12 +16,26 @@ export class ManagePetComponent implements OnInit {
     this.petlist();
   }
 
-  removepet(data: any) {
+  petlist() {
+    this._http.get('http://localhost:3000/pet/get-pet-withinfo').subscribe((response: any) => {
+      this.data = response.message;
+    });
+  }
+
+  btneditpet(id: any) {
+    this.router.navigate(['/edit-pet'], {
+      queryParams: {  
+        id_pet: id
+      }
+    });
+  }
+
+  removepet(id_pet: any) {
     try {
       const deleteConfirmed = window.confirm('ต้องการลบข้อมูลสัตว์เลี้ยงใช่หรือไม่ ?');
 
     if (deleteConfirmed) {
-      this._http.delete('http://localhost:3000/pet/delete-Pet/' + data.id_pet).subscribe(
+      this._http.delete('http://localhost:3000/pet/delete-Pet/' + id_pet).subscribe(
         (response: any) => {
           this.data = response;
           this.petlist()
@@ -37,14 +51,8 @@ export class ManagePetComponent implements OnInit {
     }
   }
 
-  petlist() {
-    this._http.get('http://localhost:3000/pet/get-pet-withinfo').subscribe((response: any) => {
-      this.data = response.message;
-    });
-  }
-
-  btneditpet(id: any) {
-    this.router.navigate(['/edit-pet'], {
+  btnreview(id: any) {
+    this.router.navigate(['/view-review'], {
       queryParams: {  
         id_pet: id
       }
