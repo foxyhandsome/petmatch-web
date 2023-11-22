@@ -26,6 +26,7 @@ export class EditReviewComponent implements OnInit{
       }
     });
 
+    this.getreviewbyid()
     this.validateForm = this.fb.group({
       review_info: new FormControl<string | null>(null),
       star: new FormControl<number | null>(null),
