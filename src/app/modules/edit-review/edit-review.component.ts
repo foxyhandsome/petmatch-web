@@ -15,14 +15,19 @@ export class EditReviewComponent implements OnInit{
   constructor(private fb: FormBuilder, private router: Router, private _http: HttpClient) { }
   
   reviewid: any[] = []
+  petid: any[] = []
 
   ngOnInit(): void {
 
     this._activatedRoute.queryParams.subscribe(params => {
       const idreview = params['id_review'];
+      const idPet = params['id_pet']
       if (idreview) {
         this.reviewid = idreview;
         this.getreviewbyid()
+      }
+      if (idreview) {
+        this.petid = idPet;
       }
     });
 
@@ -50,7 +55,14 @@ export class EditReviewComponent implements OnInit{
   editreviewbyid(){
     this._http.post('http://localhost:3000/review/edit-review/' + this.reviewid, this.validateForm.value).subscribe((response: any) => {
       this._changeDetectorRef.detectChanges()
-      this.router.navigate(['/manage-pet']);
+      this.router.navigate(['/view-review'], {
+        queryParams: {
+          id_pet: this.petid
+        }
+
+
+      ]
+      });
       },(error) => {
         console.error('เกิดข้อผิดพลาด:', error);
     });

@@ -41,7 +41,7 @@ export class ViewReviewComponent implements OnInit {
     this.router.navigate(['/edit-review'], {
       queryParams: {
         id_review: idreview,
-        
+        id_pet: this.idpet
       }
     });
   }
