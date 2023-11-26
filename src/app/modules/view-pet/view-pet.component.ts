@@ -29,9 +29,24 @@ export class ViewPetComponent implements OnInit {
   }
 
   getpetbyuserid() {
-    this._http.get('http://localhost:3000/pet/get-pet-by-userid/' + this.petbyuserid).subscribe((response: any) => {
-      this.data = response;
-    });
+    try {
+      this._http.get('http://localhost:3000/pet/get-pet-by-userid/' + this.petbyuserid).subscribe(
+        (response: any) => {
+          this.data = response;
+          this._changeDetectorRef.detectChanges();
+        },
+        (error: any) => {
+          // Handle error here
+          this.data = []
+          console.error('Error fetching pet by user ID:', error);
+          // You can also display an error message to the user or perform other actions as needed
+        }
+      );
+    } catch (error) {
+      this.data = []
+      console.error('An unexpected error occurred:', error);
+      // Handle unexpected errors here
+    }
   }
 
   btncreatepet() {
@@ -57,12 +72,13 @@ export class ViewPetComponent implements OnInit {
       if (deleteConfirmed) {
         this._http.delete('http://localhost:3000/pet/delete-Pet/' + idpet).subscribe(
           (response: any) => {
-            this.data = response;
+
             this.getpetbyuserid()
             alert('ลบข้อมูลสัตว์เลี้ยงเรียบร้อยแล้ว');
           },
           (error: any) => {
             if (error.error.statusCode == 500) {
+              this.getpetbyuserid()
             }
           }
         );
