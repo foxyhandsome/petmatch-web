@@ -19,9 +19,9 @@ export class EditPetComponent {
   listpetblood: any[] = []
   listuser: any[] = []
   petbyid: any[] = []
-  userbyid : any[] =[]
+  userbyid: any[] = []
   data: any[] = []
-  
+
   ngOnInit(): void {
     this.getpetbreed()
     this.getpetskin()
@@ -48,7 +48,7 @@ export class EditPetComponent {
       id_pet: new FormControl<number | null>(null),
       picture_pet: new FormControl<string | null>(null),
       sex_pet: new FormControl<string | null>(null),
-      health_pet: new FormControl<string| null>(null),
+      health_pet: new FormControl<string | null>(null),
       name_pet: new FormControl<string | null>(null),
       age_pet: new FormControl<string | null>(null),
       id_skin: new FormControl<number | null>(null),
@@ -59,11 +59,10 @@ export class EditPetComponent {
   }
 
 
-    getpetbyid():void{
+  getpetbyid(): void {
     this._http.get('http://localhost:3000/pet/get-pet/' + this.petbyid).subscribe({
       next: (response: any) => {
         const data: any = response;
-        console.log(data)
         this.validateForm.patchValue(data[0]);
         // this.validateForm.get("picture_pet")?.patchValue(null);
         // this.validateForm.get("health_pet")?.patchValue(null);
@@ -82,34 +81,34 @@ export class EditPetComponent {
     });
   }
 
-  editpetbyid(){
+  editpetbyid() {
     this._http.post('http://localhost:3000/pet/edit-pet/' + this.petbyid, this.validateForm.value).subscribe((response: any) => {
       this._changeDetectorRef.detectChanges()
       this.router.navigate(['/view-pet']);
       alert('เเก้ไขข้อมูลสัตว์เลี้ยงเรียบร้อยแล้ว');
-      },(error) => {
-        console.error('เกิดข้อผิดพลาด:', error);
+    }, (error) => {
+      console.error('เกิดข้อผิดพลาด:', error);
     });
   }
 
 
   getpetbreed() {
     this._http.get('http://localhost:3000/petbreed/get-petbreed').subscribe((response: any) => {
-      const data : any = response; 
+      const data: any = response;
       this.listpetbreed = data;
-    },(error) => {
+    }, (error) => {
       console.error('เกิดข้อผิดพลาด:', error);
-  });
-}
+    });
+  }
 
   getpetskin() {
     this._http.get('http://localhost:3000/petskin/get-petskin').subscribe((response: any) => {
-      const data : any = response; 
+      const data: any = response;
       this.listpetskin = data;
-  },(error) => {
-    console.error('เกิดข้อผิดพลาด:', error);
-});
-}
+    }, (error) => {
+      console.error('เกิดข้อผิดพลาด:', error);
+    });
+  }
 
   getpetblood() {
     this._http.get('http://localhost:3000/petblood/get-petblood').subscribe((response: any) => {
@@ -129,12 +128,12 @@ export class EditPetComponent {
     });
   }
 
-  handleUploadimg(event:any) {
+  handleUploadimg(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      let data : any = "";
+      let data: any = "";
       if (reader.result?.toString().startsWith('data:image/png;base64,')) {
         data = reader.result?.toString().replace('data:image/png;base64,', '');
       } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
@@ -142,17 +141,17 @@ export class EditPetComponent {
       } else {
         data = reader.result?.toString();
       }
-        console.log(reader.result);
-        this.validateForm.get("picture_pet")?.patchValue(data)
+      console.log(reader.result);
+      this.validateForm.get("picture_pet")?.patchValue(data)
     };
-}
+  }
 
-  handleUploadimgcert(event:any) {
+  handleUploadimgcert(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      let data : any = "";
+      let data: any = "";
       if (reader.result?.toString().startsWith('data:image/png;base64,')) {
         data = reader.result?.toString().replace('data:image/png;base64,', '');
       } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
@@ -162,7 +161,7 @@ export class EditPetComponent {
       }
       console.log(reader.result);
       this.validateForm.get("health_pet")?.patchValue(data)
-  };
-}
+    };
+  }
 
 }

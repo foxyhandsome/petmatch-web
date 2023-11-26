@@ -7,11 +7,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './view-pet.component.html',
   styleUrls: ['./view-pet.component.css']
 })
-export class ViewPetComponent implements OnInit{
+export class ViewPetComponent implements OnInit {
   private _activatedRoute = inject(ActivatedRoute);
   private _changeDetectorRef = inject(ChangeDetectorRef);
-  constructor(private router: Router, private _http: HttpClient) {}
-  
+  constructor(private router: Router, private _http: HttpClient) { }
+
   data: any[] = [];
   petbyuserid: any[] = [];
 
@@ -25,26 +25,26 @@ export class ViewPetComponent implements OnInit{
         this.getpetbyuserid();
       }
     });
-    
+
   }
-  
+
   getpetbyuserid() {
     this._http.get('http://localhost:3000/pet/get-pet-by-userid/' + this.petbyuserid).subscribe((response: any) => {
       this.data = response;
     });
   }
 
-  btncreatepet(iduser: any) {
+  btncreatepet() {
     this.router.navigate(['/create-pet'], {
       queryParams: {
-        id_user: iduser
+        id_user: this.petbyuserid
       }
     });
   }
 
   btneditpet(idpet: any) {
     this.router.navigate(['/edit-pet'], {
-      queryParams: {  
+      queryParams: {
         id_pet: idpet
       }
     });
@@ -54,19 +54,19 @@ export class ViewPetComponent implements OnInit{
     try {
       const deleteConfirmed = window.confirm('ต้องการลบข้อมูลสัตว์เลี้ยงใช่หรือไม่ ?');
 
-    if (deleteConfirmed) {
-      this._http.delete('http://localhost:3000/pet/delete-Pet/' + idpet).subscribe(
-        (response: any) => {
-          this.data = response;
-          this.getpetbyuserid()
-          alert('ลบข้อมูลสัตว์เลี้ยงเรียบร้อยแล้ว');
-        },
-        (error: any) => {
-          if (error.error.statusCode == 500) {
+      if (deleteConfirmed) {
+        this._http.delete('http://localhost:3000/pet/delete-Pet/' + idpet).subscribe(
+          (response: any) => {
+            this.data = response;
+            this.getpetbyuserid()
+            alert('ลบข้อมูลสัตว์เลี้ยงเรียบร้อยแล้ว');
+          },
+          (error: any) => {
+            if (error.error.statusCode == 500) {
+            }
           }
-        }
-      );
-    }
+        );
+      }
     } catch (error) {
       console.error("An unexpected error occurred:", error);
     }
@@ -74,13 +74,13 @@ export class ViewPetComponent implements OnInit{
 
   btnreview(idpet: any) {
     this.router.navigate(['/view-review'], {
-      queryParams: {  
+      queryParams: {
         id_pet: idpet
       }
     });
   }
 
-  convertImage(image:string) {
+  convertImage(image: string) {
     return "data:image/jpeg;base64," + image
   }
 

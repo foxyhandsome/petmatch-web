@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-pet',
@@ -11,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreatePetComponent {
   validateForm!: FormGroup;
   private _activatedRoute = inject(ActivatedRoute);
+  private _location = inject(Location);
+
   constructor(private fb: FormBuilder, private router: Router, private _http: HttpClient) { }
 
   listpetbreed: any[] = []
@@ -21,24 +24,10 @@ export class CreatePetComponent {
   userbyid: any[] = []
 
   ngOnInit(): void {
+    this.createForm();
     this.getpetbreed()
     this.getpetskin()
     this.getpetblood()
-  
-
-    // this.getuserbyuser()
-    this.validateForm = this.fb.group({
-      id_pet: new FormControl<number | null>(null, Validators.required),
-      picture_pet: new FormControl<string | null>(null,  Validators.required),
-      sex_pet: new FormControl<string | null>(null,  Validators.required),
-      health_pet: new FormControl<string| null>(null,  Validators.required),
-      name_pet: new FormControl<string | null>(null,  Validators.required),
-      age_pet: new FormControl<string | null>(null,  Validators.required),
-      id_skin: new FormControl<number | null>(null,  Validators.required),
-      id_blood: new FormControl<number | null>(null,  Validators.required),
-      id_user: new FormControl<number | null>(null,  Validators.required),
-      id_breed: new FormControl<number | null>(null,  Validators.required),
-    });
     this._activatedRoute.queryParams.subscribe(params => {
       const iduser = params['id_user'];
       console.log(iduser)
@@ -49,18 +38,36 @@ export class CreatePetComponent {
     });
   }
 
-
-  createpet():void {
-    this._http.post('http://localhost:3000/pet/create-pet', this.validateForm.value).subscribe((response: any) => {
-        this.data = response;
-        this.router.navigate(['/view-pet']),{
-          queryParams: {
-            id_user: this.userbyid
-          }
-        }
-      },(error) => {
-        console.error('เกิดข้อผิดพลาด:', error);
+  createForm() {
+    this.validateForm = this.fb.group({
+      id_pet: new FormControl<number | null>(null),
+      picture_pet: new FormControl<string | null>(null, Validators.required),
+      sex_pet: new FormControl<string | null>(null, Validators.required),
+      health_pet: new FormControl<string | null>(null, Validators.required),
+      name_pet: new FormControl<string | null>(null, Validators.required),
+      age_pet: new FormControl<string | null>(null, Validators.required),
+      id_skin: new FormControl<number | null>(null, Validators.required),
+      id_blood: new FormControl<number | null>(null, Validators.required),
+      id_user: new FormControl<number | null>(null, Validators.required),
+      id_breed: new FormControl<number | null>(null, Validators.required),
     });
+  }
+
+
+  createpet(): void {
+    if (this.validateForm.valid) {
+      this._http.post('http://localhost:3000/pet/create-pet', this.validateForm.value).subscribe((response: any) => {
+        console.log(response);
+        this._location.back();
+        this.data = response;
+
+      }, (error) => {
+        console.error('เกิดข้อผิดพลาด:', error);
+      });
+    } else {
+      alert('sssss')
+    }
+
   }
 
   // getuserbyid():void{
@@ -79,21 +86,21 @@ export class CreatePetComponent {
 
   getpetbreed() {
     this._http.get('http://localhost:3000/petbreed/get-petbreed').subscribe((response: any) => {
-      const data : any = response; 
+      const data: any = response;
       this.listpetbreed = data;
-    },(error) => {
+    }, (error) => {
       console.error('เกิดข้อผิดพลาด:', error);
-  });
-}
+    });
+  }
 
   getpetskin() {
     this._http.get('http://localhost:3000/petskin/get-petskin').subscribe((response: any) => {
-      const data : any = response; 
+      const data: any = response;
       this.listpetskin = data;
-  },(error) => {
-    console.error('เกิดข้อผิดพลาด:', error);
-});
-}
+    }, (error) => {
+      console.error('เกิดข้อผิดพลาด:', error);
+    });
+  }
 
   getpetblood() {
     this._http.get('http://localhost:3000/petblood/get-petblood').subscribe((response: any) => {
@@ -113,12 +120,12 @@ export class CreatePetComponent {
   //   });
   // }
 
-  handleUploadimg(event:any) {
+  handleUploadimg(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      let data : any = "";
+      let data: any = "";
       if (reader.result?.toString().startsWith('data:image/png;base64,')) {
         data = reader.result?.toString().replace('data:image/png;base64,', '');
       } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
@@ -126,17 +133,16 @@ export class CreatePetComponent {
       } else {
         data = reader.result?.toString();
       }
-        console.log(reader.result);
-        this.validateForm.get("picture_pet")?.patchValue(data)
+      this.validateForm.get("picture_pet")?.patchValue(data)
     };
-}
+  }
 
-  handleUploadimgcert(event:any) {
+  handleUploadimgcert(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      let data : any = "";
+      let data: any = "";
       if (reader.result?.toString().startsWith('data:image/png;base64,')) {
         data = reader.result?.toString().replace('data:image/png;base64,', '');
       } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
@@ -144,9 +150,8 @@ export class CreatePetComponent {
       } else {
         data = reader.result?.toString();
       }
-      console.log(reader.result);
       this.validateForm.get("health_pet")?.patchValue(data)
-  };
-}
+    };
+  }
 
 }

@@ -4,80 +4,84 @@
       <strong>เเก้ไขสัตว์เลี้ยง</strong>
     </div>
     <div class="card-body">
-        
-        <div class="row">
-            <label for="imagepet" style="font-size: 1.25rem; ">รูปสัตว์เลี้ยง</label>
-            <input type="file" (change)="handleUploadimg($event)" class="form-control" accept="image/png,image/jpeg" required title="กรุณาใส่รูปสัตว์เลี้ยง" >
+
+      <div class="row">
+        <label for="imagepet" style="font-size: 1.25rem; ">รูปสัตว์เลี้ยง</label>
+        <input type="file" (change)="handleUploadimg($event)" class="form-control" accept="image/png,image/jpeg"
+          required title="กรุณาใส่รูปสัตว์เลี้ยง">
+      </div>
+
+      <div class="row">
+        <label for="imagepetcert" style="font-size: 1.25rem; ">ใบรับรองสายพันธุ์</label>
+        <input type="file" (change)="handleUploadimgcert($event)" class="form-control" accept="image/png,image/jpeg"
+          required title="กรุณาใส่ใบรับรองเเพทย์">
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="namepet" style="font-size: 1.25rem;">ชื่อสัตว์เลี้ยง</label>
+          <input type="text" class="form-control form-control-lg" id="namepet" placeholder="ชื่อสัตว์เลี้ยง" required
+            title="กรุณากรอกชื่อสัตว์เลี้ยง" formControlName="name_pet">
         </div>
-  
-        <div class="row">
-            <label for="imagepetcert" style="font-size: 1.25rem; ">ใบรับรองสายพันธุ์</label>
-            <input type="file" (change)="handleUploadimgcert($event)" class="form-control" accept="image/png,image/jpeg" required title="กรุณาใส่ใบรับรองเเพทย์" >
+        <div class="form-group col-md-2">
+          <label for="agepet" style="font-size: 1.25rem;">อายุสัตว์เลี้ยง</label>
+          <input type="number" class="form-control form-control-lg" id="agepet" placeholder="อายุสัตว์เลี้ยง" required
+            title="กรุณากรอกอายุสัตว์เลี้ยง" formControlName="age_pet">
         </div>
-  
-        <div class="row">
-          <div class="form-group col-md-3">
-            <label for="namepet" style="font-size: 1.25rem;">ชื่อสัตว์เลี้ยง</label>
-            <input type="text" class="form-control form-control-lg" id="namepet" placeholder="ชื่อสัตว์เลี้ยง" required title="กรุณากรอกชื่อสัตว์เลี้ยง" formControlName="name_pet">
+        <div class="col-md-5 mt-1">
+          <label for="agepet" style="font-size: 1.25rem;">เพศสัตว์เลี้ยง</label>
+          <div class="form-check col-md-3 mt-1">
+            <input class="form-check-input" type="radio" value="ผู้" formControlName="sex_pet">
+            <label class="form-check-label" for="male">
+              ผู้
+            </label>
           </div>
-          <div class="form-group col-md-2">
-            <label for="agepet" style="font-size: 1.25rem;">อายุสัตว์เลี้ยง</label>
-            <input type="number" class="form-control form-control-lg" id="agepet" placeholder="อายุสัตว์เลี้ยง" required title="กรุณากรอกอายุสัตว์เลี้ยง" formControlName="age_pet">
-          </div>
-          <div class="col-md-5 mt-1">
-            <label for="agepet" style="font-size: 1.25rem;">เพศสัตว์เลี้ยง</label>
-              <div class="form-check col-md-3 mt-1">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="ผู้" formControlName="sex_pet">
-                <label class="form-check-label" for="male">
-                  ผู้
-                </label>
-              </div>
-              <div class="form-check col-md-3 mt-1">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="เมีย" formControlName="sex_pet">
-                <label class="form-check-label" for="exampleRadios2">
-                  เมีย
-                </label>
-              </div>
-            </div>
-        </div>
-  
-        <div class="row">
-          <label for="detailpet" style="font-size: 1.25rem;">เกี่ยวกับสัตว์เลี้ยง</label>
-          <div class="form-group col-md-2">
-            <label for="PetbreedFormControlSelect"><strong>สายพันธุ์สัตว์เลี้ยง</strong></label>
-            <select class="form-control" id="PetbreedFormControlSelect" formControlName="id_breed">
-              <option *ngFor="let petbreed of listpetbreed" [value]="petbreed.id_breed">{{petbreed.name_breed}}</option>
-            </select>
-          </div>
-  
-          <div class="form-group col-md-2">
-            <label for="PetSkinFormControlSelect"><strong>สีขนสัตว์เลี้ยง</strong></label>
-            <select class="form-control" id="PetSkinFormControlSelect" formControlName="id_skin">
-              <option *ngFor="let petskin of listpetskin " [value]="petskin.id_skin">{{petskin.type_skin}}</option>
-            </select>
-          </div>
-  
-          <div class="form-group col-md-2">
-            <label for="PetBloodFormControlSelect"><strong>กรุ๊ปเลือดสัตว์เลี้ยง</strong></label>
-            <select class="form-control" id="PetBloodFormControlSelect" formControlName="id_blood">
-              <option *ngFor="let petblood of listpetblood " [value]="petblood.id_blood">{{petblood.type_blood}}</option>
-            </select>
+          <div class="form-check col-md-3 mt-1">
+            <input class="form-check-input" type="radio" value="เมีย" formControlName="sex_pet">
+            <label class="form-check-label" for="exampleRadios2">
+              เมีย
+            </label>
           </div>
         </div>
-  
-        <div class="row">
-          <label for="detailpet" style="font-size: 1.25rem;">เจ้าของสัตว์เลี้ยง</label>
-          <div class="form-group col-md-2">
-            <label for="OwnerFormControlSelect"><strong>เจ้าของสัตว์เลี้ยง</strong></label>
-            <select class="form-control" id="OwnerFormControlSelect" formControlName="id_user">
-              <option *ngFor="let user of listuser " [value]="user.id_user">{{user.username}}</option>
-            </select>
-          </div>
+      </div>
+
+      <div class="row">
+        <label for="detailpet" style="font-size: 1.25rem;">เกี่ยวกับสัตว์เลี้ยง</label>
+        <div class="form-group col-md-2">
+          <label for="PetbreedFormControlSelect"><strong>สายพันธุ์สัตว์เลี้ยง</strong></label>
+          <select class="form-control" id="PetbreedFormControlSelect" formControlName="id_breed">
+            <option *ngFor="let petbreed of listpetbreed" [value]="petbreed.id_breed">{{petbreed.name_breed}}</option>
+          </select>
         </div>
-  
-        <div class="row">
-          <button type="submit" class="btn btn-primary" (click)="editpetbyid()">บันทึกข้อมูล</button>
+
+        <div class="form-group col-md-2">
+          <label for="PetSkinFormControlSelect"><strong>สีขนสัตว์เลี้ยง</strong></label>
+          <select class="form-control" id="PetSkinFormControlSelect" formControlName="id_skin">
+            <option *ngFor="let petskin of listpetskin " [value]="petskin.id_skin">{{petskin.type_skin}}</option>
+          </select>
         </div>
+
+        <div class="form-group col-md-2">
+          <label for="PetBloodFormControlSelect"><strong>กรุ๊ปเลือดสัตว์เลี้ยง</strong></label>
+          <select class="form-control" id="PetBloodFormControlSelect" formControlName="id_blood">
+            <option *ngFor="let petblood of listpetblood " [value]="petblood.id_blood">{{petblood.type_blood}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="detailpet" style="font-size: 1.25rem;">เจ้าของสัตว์เลี้ยง</label>
+        <div class="form-group col-md-2">
+          <label for="OwnerFormControlSelect"><strong>เจ้าของสัตว์เลี้ยง</strong></label>
+          <select class="form-control" id="OwnerFormControlSelect" formControlName="id_user">
+            <option *ngFor="let user of listuser " [value]="user.id_user">{{user.username}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <button type="submit" class="btn btn-primary" (click)="editpetbyid()">บันทึกข้อมูล</button>
+      </div>
     </div>
   </div>
-  </form>
+</form>
