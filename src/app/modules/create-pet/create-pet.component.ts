@@ -53,7 +53,11 @@ export class CreatePetComponent {
   createpet():void {
     this._http.post('http://localhost:3000/pet/create-pet', this.validateForm.value).subscribe((response: any) => {
         this.data = response;
-        this.router.navigate(['/manage-pet']);
+        this.router.navigate(['/view-pet']),{
+          queryParams: {
+            id_user: this.userbyid
+          }
+        }
       },(error) => {
         console.error('เกิดข้อผิดพลาด:', error);
     });

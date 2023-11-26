@@ -12,12 +12,10 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { EditUserComponent } from './modules/edit-user/edit-user.component';
-import { EditReviewComponent } from './modules/edit-review/edit-review.component';
-import { ManageReviewComponent } from './modules/manage-review/manage-review.component';
-import { ManagePetComponent } from './modules/manage-pet/manage-pet.component';
 import { CreatePetComponent } from './modules/create-pet/create-pet.component';
 import { EditPetComponent } from './modules/edit-pet/edit-pet.component';
-import { ViewReviewComponent } from './modules/view-review/view-review.component';
+import { ViewPetComponent } from './modules/view-pet/view-pet.component';
+
 
 
 const antDesignIcons = AllIcons as {
@@ -29,13 +27,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     LoginComponent,
-    ManageReviewComponent,
     EditUserComponent,
-    EditReviewComponent,
-    ManageReviewComponent,
-    ManagePetComponent,
     CreatePetComponent,
     EditPetComponent,
+    ViewPetComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -30,31 +30,32 @@ export class ManageUserComponent implements OnInit {
     });
   }
 
-  btncreatepet(id: any) {
-    this.router.navigate(['/create-pet'], {
+  btnviewpet(iduser: any) {
+    this.router.navigate(['/view-pet'], {
       queryParams: {
-        id_user: id
+        id_user: iduser
       }
     });
   }
 
-  btnedituser(id: any) {
+  btnedituser(iduser: any) {
     this.router.navigate(['/edit-user'], {
       queryParams: {
-        id_user: id
+        id_user: iduser
       }
     });
   }
 
-  removeuser(id_user: any) {
+  removeuser(iduser: any) {
     try {
       const deleteConfirmed = window.confirm('ต้องการลบข้อมูลผู้ใช้ใช่หรือไม่ ?');
 
       if (deleteConfirmed) {
-        this._http.delete('http://localhost:3000/user/delete-user/' + id_user).subscribe(
+        this._http.delete('http://localhost:3000/user/delete-user/' + iduser).subscribe(
           (response: any) => {
             this.data = response;
             this.getuser()
+            alert('ลบข้อมูลผู้ใช้เรียบร้อยแล้ว');
           },
           (error: any) => {
             if (error.error.statusCode == 500) {

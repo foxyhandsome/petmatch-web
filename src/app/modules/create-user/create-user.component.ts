@@ -18,7 +18,7 @@ export class CreateUserComponent implements OnInit{
   ngOnInit(): void {
     this.getdistrict()
     this.validateForm = this.fb.group({
-      id_user: new FormControl<number | null>(null, Validators.required),
+      id_user: new FormControl<number | null>(null),
       username: new FormControl<string | null>(null, Validators.required),
       password: new FormControl<string | null>(null, Validators.required),
       information: new FormControl<string | null>(null, Validators.required),
@@ -29,11 +29,19 @@ export class CreateUserComponent implements OnInit{
     });
   }
 
+  required(){
+    if(this.validateForm.valid){
+      this.createuser()
+    }else{
+      alert('กรุณากรอกให้ครบทุกช่อง')
+    }
+  }
 
   createuser():void {
     this._http.post('http://localhost:3000/user/create-user', this.validateForm.value).subscribe((response: any) => {
         this.data = response;
         this.router.navigate(['/manage-user']);
+        alert('สร้างผู้ใช้เรียบร้อยเเล้ว')
       },(error) => {
         console.error('เกิดข้อผิดพลาด:', error);
     });

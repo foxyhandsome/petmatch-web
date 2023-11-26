@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManagePetComponent } from './manage-pet.component';
+import { ViewPetComponent } from './view-pet.component';
 
-describe('ManagePetComponent', () => {
-  let component: ManagePetComponent;
-  let fixture: ComponentFixture<ManagePetComponent>;
+describe('ViewPetComponent', () => {
+  let component: ViewPetComponent;
+  let fixture: ComponentFixture<ViewPetComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ManagePetComponent]
+      declarations: [ViewPetComponent]
     });
-    fixture = TestBed.createComponent(ManagePetComponent);
+    fixture = TestBed.createComponent(ViewPetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

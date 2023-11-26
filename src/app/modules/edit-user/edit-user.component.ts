@@ -60,6 +60,7 @@ export class EditUserComponent implements OnInit{
     this._http.post('http://localhost:3000/user/edit-user/' + this.userbyid, this.validateForm.value).subscribe((response: any) => {
       this._changeDetectorRef.detectChanges()
       this.router.navigate(['/manage-user']);
+      alert('เเก้ไขข้อมูลผู้ใช้เรียบร้อยแล้ว');
       },(error) => {
         console.error('เกิดข้อผิดพลาด:', error);
     });

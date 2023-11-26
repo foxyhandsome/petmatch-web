@@ -2,6 +2,7 @@
     <div class="card-header" >
       <strong>สัตว์เลี้ยงในระบบ</strong>
     </div>
+    <button *ngFor="let item of data" (click)="btncreatepet(item.id_user)" type="button" class="btn btn-success col-md-1">เพิ่มสัตว์เลี้ยง</button>
     <div class="card-body">
       <div class="row">
         <div class="col">
@@ -10,10 +11,10 @@
               <tr>
                 <th scope="col">ไอดีสัตว์เลี้ยง</th>
                 <th scope="col">รูป</th>
-                <th scope="col">เพศ</th>
                 <th scope="col">ใบรับรองสายพันธุ์</th>
                 <th scope="col">ชื่อ</th>
                 <th scope="col">อายุ</th>
+                <th scope="col">เพศ</th>
                 <th scope="col">สีขน</th>
                 <th scope="col">กรุ๊ปเลือด</th>
                 <th scope="col">เจ้าของ</th>
@@ -25,10 +26,10 @@
               <tr *ngFor="let item of data">
                 <td>{{item.id_pet}}</td>
                 <td><img style="width: 200px;" [src]="convertImage(item.picture_pet)"></td>
-                <td>{{item.sex_pet}}</td>
                 <td><img style="width: 200px;" [src]="convertImage(item.health_pet)"></td>
                 <td>{{item.name_pet}}</td>
                 <td>{{item.age_pet}}</td>
+                <td>{{item.sex_pet}}</td>
                 <td>{{item.type_skin}}</td>
                 <td>{{item.type_blood}}</td>
                 <td>{{item.username}}</td>
@@ -45,4 +46,3 @@
       </div>
     </div>
   </div>
-  

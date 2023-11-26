@@ -19,7 +19,9 @@ export class EditPetComponent {
   listpetblood: any[] = []
   listuser: any[] = []
   petbyid: any[] = []
+  userbyid : any[] =[]
   data: any[] = []
+  
   ngOnInit(): void {
     this.getpetbreed()
     this.getpetskin()
@@ -33,6 +35,15 @@ export class EditPetComponent {
         this.getpetbyid();
       }
     });
+
+    this._activatedRoute.queryParams.subscribe(params => {
+      const iduser = params['id_user'];
+      if (iduser) {
+        this.userbyid = iduser;
+      }
+    });
+
+
     this.validateForm = this.fb.group({
       id_pet: new FormControl<number | null>(null),
       picture_pet: new FormControl<string | null>(null),
@@ -74,7 +85,8 @@ export class EditPetComponent {
   editpetbyid(){
     this._http.post('http://localhost:3000/pet/edit-pet/' + this.petbyid, this.validateForm.value).subscribe((response: any) => {
       this._changeDetectorRef.detectChanges()
-      this.router.navigate(['/manage-pet']);
+      this.router.navigate(['/view-pet']);
+      alert('เเก้ไขข้อมูลสัตว์เลี้ยงเรียบร้อยแล้ว');
       },(error) => {
         console.error('เกิดข้อผิดพลาด:', error);
     });

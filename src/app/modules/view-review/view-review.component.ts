@@ -37,14 +37,14 @@ export class ViewReviewComponent implements OnInit {
     });
   }
 
-  btneditreview(idreview: any) {
-    this.router.navigate(['/edit-review'], {
-      queryParams: {
-        id_review: idreview,
-        id_pet: this.idpet
-      }
-    });
-  }
+  // btneditreview(idreview: any) {
+  //   this.router.navigate(['/edit-review'], {
+  //     queryParams: {
+  //       id_review: idreview,
+  //       id_pet: this.idpet
+  //     }
+  //   });
+  // }
 
   removereview(id_review: any) {
     try {
@@ -55,6 +55,7 @@ export class ViewReviewComponent implements OnInit {
           (response: any) => {
             this.data = response;
             this.getreview()
+            alert('ลบข้อมูลรีวิวเรียบร้อยแล้ว');
           },
           (error: any) => {
             if (error.error.statusCode == 500) {
