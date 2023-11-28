@@ -30,11 +30,17 @@ export class LoginComponent implements OnInit {
 
 
   login(): void {
-    this.authService.login(this.formGroup.value).subscribe({
-      next: (response: any) => {
-        const data: any = response;
-        this.router.navigate(['/main']);
-      },
-    });
+    if(this.formGroup.valid){
+      this.authService.login(this.formGroup.value).subscribe({
+        next: (response: any) => {
+          const data: any = response;
+          this.router.navigate(['/main']);
+          alert('ลงชื่อเข้าใช้เรียบร้อยเเล้ว')
+        },        
+      });
+    }else{
+      alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง')
+    }
   }
+
 }

@@ -1,0 +1,82 @@
+<div class="card mt-2">
+    <div class="card-header">
+      <strong>รายละเอียดการจับคู่</strong>
+    </div>
+    <div style="padding: 20px;">
+        <strong *ngFor="let item of data" >ส่งข้อเสนอวันที่ : {{this.convertToThaiDate(item.create_date)}} , ตอบกลับข้อเสนอวันที่สถานะ : {{this.convertToThaiDate(item.update_date)}} , สถานะ : {{item.match_status}} </strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col" style="width: 10%;">ไอดีสัตว์เลี้ยง</th> -->
+                <th scope="col" style="width: 11.1%;">รูปสัตว์เลี้ยงที่ส่งข้อเสนอ</th>
+                <th scope="col" style="width: 11.1%;">ใบรับรองสายพันธุ์</th>
+                <th scope="col" style="width: 11.1%;">ชื่อสัตว์เลี้ยงที่ส่งข้อเสนอ</th>
+                <th scope="col" style="width: 11.1%;">อายุ</th>
+                <th scope="col" style="width: 11.1%;">เพศ</th>
+                <th scope="col" style="width: 11.1%;">สีขน</th>
+                <th scope="col" style="width: 11.1%;">กรุ๊ปเลือด</th>
+                <th scope="col" style="width: 11.1%;">เจ้าของที่ส่งข้อเสนอ</th>
+                <th scope="col" style="width: 11.1%;">สายพันธุ์</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data">
+                <!-- <td>{{item.id_pet_home}}</td> -->
+                <td><img style="width: 200px; " [src]="convertImage(item.picture_pet_home)"></td>
+                <td><img style="width: 200px; " [src]="convertImage(item.health_pet_home)"></td>
+                <td>{{item.name_pet_home}}</td>
+                <td>{{item.age_pet_home}}</td>
+                <td>{{item.sex_pet_home}}</td>
+                <td>{{item.type_skin_home}}</td>
+                <td>{{item.type_blood_home}}</td>
+                <td>{{item.username_home}}</td>
+                <td>{{item.name_breed_home}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col" style="width: 10%;">ไอดีสัตว์เลี้ยง</th> -->
+                <th scope="col" style="width: 11.1%;">รูปสัตว์เลี้ยงที่รับข้อเสนอ</th>
+                <th scope="col" style="width: 11.1%;">ใบรับรองสายพันธุ์</th>
+                <th scope="col" style="width: 11.1%;">ชื่อสัตว์เลี้ยงที่ตอบกลับข้อเสนอ</th>
+                <th scope="col" style="width: 11.1%;">อายุ</th>
+                <th scope="col" style="width: 11.1%;">เพศ</th>
+                <th scope="col" style="width: 11.1%;">สีขน</th>
+                <th scope="col" style="width: 11.1%;">กรุ๊ปเลือด</th>
+                <th scope="col" style="width: 11.1%;">เจ้าของที่ตอบกลับข้อเสนอ</th>
+                <th scope="col" style="width: 11.1%;">สายพันธุ์</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data">
+                <!-- <td>{{item.id_pet_guest}}</td> -->
+                <td><img style="width: 200px; height: 200px;" [src]="convertImage(item.picture_pet_guest)"></td>
+                <td><img style="width: 200px; height: 200px;" [src]="convertImage(item.health_pet_guest)"></td>
+                <td>{{item.name_pet_guest}}</td>
+                <td>{{item.age_pet_guest}}</td>
+                <td>{{item.sex_pet_guest}}</td>
+                <td>{{item.type_skin_guest}}</td>
+                <td>{{item.type_blood_guest}}</td>
+                <td>{{item.username_guest}}</td>
+                <td>{{item.name_breed_guest}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+  

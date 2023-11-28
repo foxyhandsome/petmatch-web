@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   templateUrl: './create-pet.component.html',
   styleUrls: ['./create-pet.component.css']
 })
-export class CreatePetComponent {
+export class CreatePetComponent implements OnInit {
   validateForm!: FormGroup;
   private _activatedRoute = inject(ActivatedRoute);
   private _location = inject(Location);
@@ -57,17 +57,15 @@ export class CreatePetComponent {
   createpet(): void {
     if (this.validateForm.valid) {
       this._http.post('http://localhost:3000/pet/create-pet', this.validateForm.value).subscribe((response: any) => {
-        console.log(response);
         this._location.back();
         this.data = response;
-
+        alert('เพิ่มสัตว์เลี้ยงเรียบร้อยเเล้ว')
       }, (error) => {
         console.error('เกิดข้อผิดพลาด:', error);
       });
     } else {
-      alert('sssss')
+      alert('กรุณากรอกให้ครบทุกช่อง')
     }
-
   }
 
   // getuserbyid():void{

@@ -15,6 +15,9 @@ import { EditUserComponent } from './modules/edit-user/edit-user.component';
 import { CreatePetComponent } from './modules/create-pet/create-pet.component';
 import { EditPetComponent } from './modules/edit-pet/edit-pet.component';
 import { ViewPetComponent } from './modules/view-pet/view-pet.component';
+import { ViewMatchComponent } from './modules/view-match/view-match.component';
+import { ViewDetailMatchComponent } from './modules/view-detail-match/view-detail-match.component';
+
 
 
 
@@ -30,7 +33,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     EditUserComponent,
     CreatePetComponent,
     EditPetComponent,
-    ViewPetComponent
+    ViewPetComponent,
+    ViewMatchComponent,
+    ViewDetailMatchComponent
   ],
   imports: [
     BrowserAnimationsModule,

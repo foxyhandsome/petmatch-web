@@ -1,0 +1,34 @@
+<div class="card mt-2">
+  <div class="card-header">
+    <strong>สัตว์เลี้ยงในระบบ</strong>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ไอดีจับคู่</th>
+              <th scope="col">ชื่อสัตว์เลี้ยงที่ส่งข้อเสนอ</th>
+              <th scope="col">ชื่อสัตว์เลี้ยงที่ได้รับข้อเสนอ</th>
+              <th scope="col">สถานะ</th>
+              <th scope="col">ปฏิบัติการ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data">
+              <td>{{item.id_match}}</td>
+              <td>{{item.name_pet_home}}</td>
+              <td>{{item.name_pet_guest}}</td>
+              <td>{{item.match_status}}</td>
+              <td>
+                <button (click)="btnviewdetailmatch(item.id_match)" type="button" class="btn btn-warning">ดูรายละเอียด</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -31,7 +31,7 @@ export class ViewReviewComponent implements OnInit {
   }
 
   getreview() {
-    this._http.get('http://localhost:3000/review/get-review/' + this.idpet).subscribe((response: any) => {
+    this._http.get('http://localhost:3000/review/get-review-web/' + this.idpet).subscribe((response: any) => {
       this.data = response;
       console.log(this.data)
     });
