@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-pet',
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditPetComponent {
   validateForm!: FormGroup;
   private _activatedRoute = inject(ActivatedRoute);
+  private _location = inject(Location);
   private _changeDetectorRef = inject(ChangeDetectorRef);
   constructor(private fb: FormBuilder, private router: Router, private _http: HttpClient) { }
 
@@ -84,7 +86,7 @@ export class EditPetComponent {
   editpetbyid() {
     this._http.post('http://localhost:3000/pet/edit-pet/' + this.petbyid, this.validateForm.value).subscribe((response: any) => {
       this._changeDetectorRef.detectChanges()
-      this.router.navigate(['/view-pet']);
+      this._location.back();
       alert('เเก้ไขข้อมูลสัตว์เลี้ยงเรียบร้อยแล้ว');
     }, (error) => {
       console.error('เกิดข้อผิดพลาด:', error);

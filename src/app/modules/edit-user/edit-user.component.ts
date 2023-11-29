@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-user',
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditUserComponent implements OnInit{
   validateForm!: FormGroup;
   private _activatedRoute = inject(ActivatedRoute);
+  private _location = inject(Location);
   private _changeDetectorRef = inject(ChangeDetectorRef);
   constructor(private fb: FormBuilder, private router: Router, private _http: HttpClient) { }
 
@@ -59,7 +61,7 @@ export class EditUserComponent implements OnInit{
   edituserbyid(){
     this._http.post('http://localhost:3000/user/edit-user/' + this.userbyid, this.validateForm.value).subscribe((response: any) => {
       this._changeDetectorRef.detectChanges()
-      this.router.navigate(['/manage-user']);
+      this._location.back();
       alert('เเก้ไขข้อมูลผู้ใช้เรียบร้อยแล้ว');
       },(error) => {
         console.error('เกิดข้อผิดพลาด:', error);
